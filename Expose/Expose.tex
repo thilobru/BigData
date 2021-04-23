@@ -1,0 +1,37 @@
+\documentclass[paper=a4,12pt,listof=totoc]{scrartcl}%titlepage,
+\usepackage[ngerman]{babel}
+\usepackage{amsfonts}
+\usepackage[utf8]{inputenx}
+\setkomafont{sectioning}{\bfseries} % Serifenschrift auch für Kapitelüberschriften
+\usepackage{textcomp} % Symbolsatz
+\usepackage{graphicx,setspace,hanging,amsmath,tabularx,acronym} % Grafikeinbindung, Zeilenabstand, Hängender Einzug, Formelsatz, Tabellen, Akronyme, Unterstrich
+\usepackage[pdfborder={0 0 0},pdfauthor=Thilo Brummerloh,pdftitle=Bachelorbeit]{hyperref} % Erweiterte PDF Unterstützung (Metadaten, Inhaltsverzeichnis, Verweise, ...)
+\usepackage[left=3cm,right=3cm,top=2.5cm,bottom=2.5cm]{geometry}
+%\usepackage{natbib}
+\usepackage[backend=biber,style=authoryear,citestyle=authoryear-ibid,sorting=nyt]{biblatex} %%%In Editor biber zur Erstellung des Literaturverzeichnisses bestimmen
+
+\addbibresource{Expose.bib}
+
+%opening
+\title{Big Data Praktikum: \\ Attribute extraction from eCommerce product descriptions}
+\author{Gruppe: Gregor Pfänder, Thilo Brummerloh}
+
+\begin{document}
+	\maketitle
+	
+	\section{Thema}
+	Auf twitter werden täglich unübersichtliche Mengen an Texten zu unterschiedlichen Themen geschrieben. Um einen Überblick zu erhalten kann eine Sentiment Analyse durchgeführt werden, die diese Datenmengen auf darstellbare Zahlen zusammenfasst.
+	
+	\section{Fragestellung}
+	Die durchzuführende Sentiment Analyse soll das sentiment der Tweets aus dem betrachteten Datensatz herausfinden. Das sentiment soll über den betrachteten Zeitraum anschaulich dargestellt werden und Auffälligkeiten sollen näher betrachtet werden. 
+	
+	\section{Daten}
+	Als Datenbasis sollen tweets, die über einen Zeitraum mehrerer Monate gesammelt wurden und in Verbindung mit dem Thema des COVID-19 stehen, verwendet werden.
+	Die Datenbasis von \cite{erdal_baran} wird herangezogen. Der Liste\footnote{\href{https://data.gesis.org/tweetscov19/keywords.txt}{https://data.gesis.org/tweetscov19/keywords.txt}} der Autoren entsprechend, wurden darin tweets aus dem Zeitraum Oktober 2019 bis April 2020 abgelegt. 
+	
+	\section{Methoden}
+	\subsection{Trainieren des Modells}
+	
+	
+	\printbibliography[title=Literaturverzeichnis]
+\end{document}

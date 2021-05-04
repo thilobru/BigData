@@ -1,0 +1,143 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.1 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \datalist[entry]{nyt/global//global/global}
+    \entry{Ghani.2006}{article}{}
+      \name{author}{5}{}{%
+        {{un=0,uniquepart=base,hash=6cfc641e2ca8f9579534edebf4ffb064}{%
+           family={Ghani},
+           familyi={G\bibinitperiod},
+           given={Rayid},
+           giveni={R\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=0bf3c03d98f342807e2a328c4062b13c}{%
+           family={Probst},
+           familyi={P\bibinitperiod},
+           given={Katharina},
+           giveni={K\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=92f7474e36f4f2b59a14e85c0e738e40}{%
+           family={Liu},
+           familyi={L\bibinitperiod},
+           given={Yan},
+           giveni={Y\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=c1a73198c9ea7bf5b17ed018b4398fd1}{%
+           family={Krema},
+           familyi={K\bibinitperiod},
+           given={Marko},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=fe87b5f73c1ad2a5bdad19727eec59ac}{%
+           family={Fano},
+           familyi={F\bibinitperiod},
+           given={Andrew},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{64d4fcb8216a0215a9b23663926b9fc5}
+      \strng{fullhash}{197d36639e58d94717c3e228c411d239}
+      \strng{bibnamehash}{64d4fcb8216a0215a9b23663926b9fc5}
+      \strng{authorbibnamehash}{64d4fcb8216a0215a9b23663926b9fc5}
+      \strng{authornamehash}{64d4fcb8216a0215a9b23663926b9fc5}
+      \strng{authorfullhash}{197d36639e58d94717c3e228c411d239}
+      \field{sortinit}{G}
+      \field{sortinithash}{32d67eca0634bf53703493fb1090a2e8}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{issn}{1931-0145}
+      \field{journaltitle}{ACM SIGKDD Explorations Newsletter}
+      \field{number}{1}
+      \field{title}{Text mining for product attribute extraction}
+      \field{volume}{8}
+      \field{year}{2006}
+      \field{pages}{41\bibrangedash 48}
+      \range{pages}{8}
+      \verb{doi}
+      \verb 10.1145/1147234.1147241
+      \endverb
+      \verb{file}
+      \verb Ghani-Text-Mining-for-Product-Attribute-Extraction:C\:\\Users\\thilo\\OneDrive\\Dokumente\\UniversitätLeipzig\\DataScience2\\BigData\\BigDataPrak\\Citavi Attachments\\Ghani-Text-Mining-for-Product-Attribute-Extraction.pdf:pdf
+      \endverb
+    \endentry
+    \entry{Majumder.30.03.2018}{misc}{}
+      \name{author}{5}{}{%
+        {{un=0,uniquepart=base,hash=f9ef98b48c693c8ff7a12cb671c7a5e6}{%
+           family={Majumder},
+           familyi={M\bibinitperiod},
+           given={Bodhisattwa\bibnamedelima Prasad},
+           giveni={B\bibinitperiod\bibinitdelim P\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=c3832f69d3b903c833e35608a4ad0adb}{%
+           family={Subramanian},
+           familyi={S\bibinitperiod},
+           given={Aditya},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=7bb295bf4026d73ce9e5e53325f0d06f}{%
+           family={Krishnan},
+           familyi={K\bibinitperiod},
+           given={Abhinandan},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=8d453a5cfadcf3273417f9c3c9c71298}{%
+           family={Gandhi},
+           familyi={G\bibinitperiod},
+           given={Shreyansh},
+           giveni={S\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=e1f5c96f8cbc11338e8813084e22ee59}{%
+           family={More},
+           familyi={M\bibinitperiod},
+           given={Ajinkya},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{2af08862e503ef28d844c6052da1566a}
+      \strng{fullhash}{ed98e1a6ff7c81181e23bd161fc4ee72}
+      \strng{bibnamehash}{2af08862e503ef28d844c6052da1566a}
+      \strng{authorbibnamehash}{2af08862e503ef28d844c6052da1566a}
+      \strng{authornamehash}{2af08862e503ef28d844c6052da1566a}
+      \strng{authorfullhash}{ed98e1a6ff7c81181e23bd161fc4ee72}
+      \field{sortinit}{M}
+      \field{sortinithash}{4625c616857f13d17ce56f7d4f97d451}
+      \field{labeldatesource}{nodate}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Extracting accurate attribute qualities from product titles is a vital component in delivering eCommerce customers with a rewarding online shopping experience via an enriched faceted search. We demonstrate the potential of Deep Recurrent Networks in this domain, primarily models such as Bidirectional LSTMs and Bidirectional LSTM-CRF with or without an attention mechanism. These have improved overall F1 scores, as compared to the previous benchmarks (More et al.) by at least 0.0391, showcasing an overall precision of 97.94{\%}, recall of 94.12{\%} and the F1 score of 0.9599. This has made us achieve a significant coverage of important facets or attributes of products which not only shows the efficacy of deep recurrent models over previous machine learning benchmarks but also greatly enhances the overall customer experience while shopping online.}
+      \field{title}{Deep Recurrent Neural Networks for Product Attribute Extraction in eCommerce}
+      \verb{file}
+      \verb Majunder_Deep:C\:\\Users\\thilo\\OneDrive\\Dokumente\\UniversitätLeipzig\\DataScience2\\BigData\\BigDataPrak\\Citavi Attachments\\Majunder_Deep.pdf:pdf
+      \endverb
+      \verb{urlraw}
+      \verb http://arxiv.org/pdf/1803.11284v1
+      \endverb
+      \verb{url}
+      \verb http://arxiv.org/pdf/1803.11284v1
+      \endverb
+      \keyw{Computer Science - Artificial Intelligence;Computer Science - Computation and Language}
+      \warn{\item Entry 'Majumder.30.03.2018' (Expose.bib): Invalid format '30.03.2018' of date field 'date' - ignoring}
+    \endentry
+  \enddatalist
+\endrefsection
+\endinput
+

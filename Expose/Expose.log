@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (MiKTeX 21.3) (preloaded format=pdflatex 2021.4.23)  23 APR 2021 11:55
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (MiKTeX 21.3) (preloaded format=pdflatex 2021.4.23)  4 MAY 2021 14:03
 entering extended mode
 **./Expose.tex
 (Expose.tex
@@ -1352,7 +1352,14 @@ Package: blx-case-expl3 2020/12/31 v3.16 expl3 case changing code for biblatex
 Package biblatex Info: Trying to load bibliographic data...
 Package biblatex Info: ... file 'Expose.bbl' found.
 
-(Expose.bbl)
+(Expose.bbl
+
+Package biblatex Warning: Biber reported the following issues
+(biblatex)                with 'Majumder.30.03.2018':
+(biblatex)                - Entry 'Majumder.30.03.2018' (Expose.bib): Invalid f
+ormat '30.03.2018' of date field 'date' - ignoring.
+
+)
 Package biblatex Info: Reference section=0 on input line 19.
 Package biblatex Info: Reference segment=0 on input line 19.
 LaTeX Font Info:    Trying to load font information for U+msa on input line 21.
@@ -1365,48 +1372,36 @@ LaTeX Font Info:    Trying to load font information for U+msb on input line 21.
 
 (C:\Program Files\MiKTeX\tex/latex/amsfonts\umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+) [1
+
+
+{C:/Users/thilo/AppData/Local/MiKTeX/pdftex/config/pdftex.map}] [2] (Expose.aux
 )
-
-LaTeX Warning: Citation 'erdal_baran' on page 1 undefined on input line 30.
-
-
-LaTeX Warning: Empty bibliography on input line 36.
-
-[1
-
-
-{C:/Users/thilo/AppData/Local/MiKTeX/pdftex/config/pdftex.map}] (Expose.aux)
-
-LaTeX Warning: There were undefined references.
-
 Package rerunfilecheck Info: File `Expose.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
-
-Package biblatex Warning: Please (re)run Biber on the file:
-(biblatex)                Expose
-(biblatex)                and rerun LaTeX afterwards.
-
 Package logreq Info: Writing requests to 'Expose.run.xml'.
 \openout1 = `Expose.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 20907 strings out of 479330
- 370396 string characters out of 2866732
- 1268941 words of memory out of 3000000
- 38061 multiletter control sequences out of 15000+600000
- 412548 words of font info for 63 fonts, out of 8000000 for 9000
+ 20952 strings out of 479330
+ 371377 string characters out of 2866732
+ 1270051 words of memory out of 3000000
+ 38097 multiletter control sequences out of 15000+600000
+ 413365 words of font info for 66 fonts, out of 8000000 for 9000
  1143 hyphenation exceptions out of 8191
  111i,8n,116p,10630b,2241s stack positions out of 5000i,500n,10000p,200000b,80000s
 <C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Progra
-m Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Program Files/MiKTe
-X/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Program Files/MiKTeX/fonts/type1
-/public/amsfonts/cm/cmr17.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfo
-nts/cm/cmr7.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pf
-b>
-Output written on Expose.pdf (1 page, 77930 bytes).
+m Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmcsc10.pfb><C:/Program Files/MiK
+TeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Program Files/MiKTeX/fonts/typ
+e1/public/amsfonts/cm/cmr12.pfb><C:/Program Files/MiKTeX/fonts/type1/public/ams
+fonts/cm/cmr17.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7
+.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Progr
+am Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmti12.pfb><C:/Program Files/MiK
+TeX/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
+Output written on Expose.pdf (2 pages, 116032 bytes).
 PDF statistics:
- 61 PDF objects out of 1000 (max. 8388607)
- 8 named destinations out of 1000 (max. 500000)
- 41 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 92 PDF objects out of 1000 (max. 8388607)
+ 14 named destinations out of 1000 (max. 500000)
+ 49 words of extra memory for PDF output out of 10000 (max. 10000000)
 

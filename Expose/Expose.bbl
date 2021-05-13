@@ -76,8 +76,114 @@
       \verb 10.1145/1147234.1147241
       \endverb
       \verb{file}
-      \verb Ghani-Text-Mining-for-Product-Attribute-Extraction:C\:\\Users\\thilo\\OneDrive\\Dokumente\\UniversitätLeipzig\\DataScience2\\BigData\\BigDataPrak\\Citavi Attachments\\Ghani-Text-Mining-for-Product-Attribute-Extraction.pdf:pdf
+      \verb Ghani-Text-Mining-for-Product-Attribute-Extraction:C\:\\Users\\thilo\\OneDrive\\Dokumente\\UniversitätLeipzig\\DataScience2\\BigData\\BigDataPrakCitavi\\Citavi Attachments\\Ghani-Text-Mining-for-Product-Attribute-Extraction.pdf:pdf
       \endverb
+    \endentry
+    \entry{Lee.2019}{article}{}
+      \name{author}{4}{ul=2}{%
+        {{un=0,uniquepart=base,hash=ed3159927df44a0a5252bcd55e207d7c}{%
+           family={Lee},
+           familyi={L\bibinitperiod},
+           given={Younghoon},
+           giveni={Y\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=8a48e4edb818180ec411b441d359c3fe}{%
+           family={Chung},
+           familyi={C\bibinitperiod},
+           given={Minki},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=96b1d7496b2ba6c07e698c20d0bdb006}{%
+           family={Cho},
+           familyi={C\bibinitperiod},
+           given={Sungzoon},
+           giveni={S\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=70a22826a6fe35637eb5c58f1a51c197}{%
+           family={Choi},
+           familyi={C\bibinitperiod},
+           given={Jinhae},
+           giveni={J\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{0ec47872ed9b8c477d1ad7e599cff6fa}
+      \strng{fullhash}{5b97ba339d071f8c2d1667fa87cff1fe}
+      \strng{bibnamehash}{0ec47872ed9b8c477d1ad7e599cff6fa}
+      \strng{authorbibnamehash}{0ec47872ed9b8c477d1ad7e599cff6fa}
+      \strng{authornamehash}{0ec47872ed9b8c477d1ad7e599cff6fa}
+      \strng{authorfullhash}{5b97ba339d071f8c2d1667fa87cff1fe}
+      \field{sortinit}{L}
+      \field{sortinithash}{7c47d417cecb1f4bd38d1825c427a61a}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Neural Processing Letters, https://doi.org/10.1007/s11063-018-9964-8}
+      \field{issn}{1370-4621}
+      \field{journaltitle}{Neural Processing Letters}
+      \field{number}{1}
+      \field{title}{Extraction of Product Evaluation Factors with a Convolutional Neural Network and Transfer Learning}
+      \field{volume}{50}
+      \field{year}{2019}
+      \field{pages}{149\bibrangedash 164}
+      \range{pages}{16}
+      \verb{doi}
+      \verb 10.1007/s11063-018-9964-8
+      \endverb
+      \verb{file}
+      \verb Lee2019_Article_ExtractionOfProductEvaluationF:C\:\\Users\\thilo\\OneDrive\\Dokumente\\UniversitätLeipzig\\DataScience2\\BigData\\BigDataPrakCitavi\\Citavi Attachments\\Lee2019_Article_ExtractionOfProductEvaluationF.pdf:pdf
+      \endverb
+      \keyw{Aspect extraction;Convolutional neural network;Domain adaptation;Off-the-shelf features;Product evaluation factor;Transfer learning}
+    \endentry
+    \entry{Lee.2020}{article}{}
+      \name{author}{3}{}{%
+        {{un=0,uniquepart=base,hash=ed3159927df44a0a5252bcd55e207d7c}{%
+           family={Lee},
+           familyi={L\bibinitperiod},
+           given={Younghoon},
+           giveni={Y\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=5626d500ed6a696b2079c8378aadf563}{%
+           family={Park},
+           familyi={P\bibinitperiod},
+           given={Jungmin},
+           giveni={J\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=96b1d7496b2ba6c07e698c20d0bdb006}{%
+           family={Cho},
+           familyi={C\bibinitperiod},
+           given={Sungzoon},
+           giveni={S\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{9107a9b328aaeccc0ecf15a3b6190ba7}
+      \strng{fullhash}{9107a9b328aaeccc0ecf15a3b6190ba7}
+      \strng{bibnamehash}{9107a9b328aaeccc0ecf15a3b6190ba7}
+      \strng{authorbibnamehash}{9107a9b328aaeccc0ecf15a3b6190ba7}
+      \strng{authornamehash}{9107a9b328aaeccc0ecf15a3b6190ba7}
+      \strng{authorfullhash}{9107a9b328aaeccc0ecf15a3b6190ba7}
+      \field{sortinit}{L}
+      \field{sortinithash}{7c47d417cecb1f4bd38d1825c427a61a}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Pattern Analysis and Applications, https://doi.org/10.1007/s10044-020-00878-5}
+      \field{issn}{1433-7541}
+      \field{journaltitle}{Pattern Analysis and Applications}
+      \field{number}{4}
+      \field{title}{Extraction and prioritization of product attributes using an explainable neural network}
+      \field{volume}{23}
+      \field{year}{2020}
+      \field{pages}{1767\bibrangedash 1777}
+      \range{pages}{11}
+      \verb{doi}
+      \verb 10.1007/s10044-020-00878-5
+      \endverb
+      \verb{file}
+      \verb Lee2020_Article_ExtractionAndPrioritizationOfP:C\:\\Users\\thilo\\OneDrive\\Dokumente\\UniversitätLeipzig\\DataScience2\\BigData\\BigDataPrakCitavi\\Citavi Attachments\\Lee2020_Article_ExtractionAndPrioritizationOfP.pdf:pdf
+      \endverb
+      \keyw{Attribute extraction;Attribute prioritization;Convolutional neural network;Explainable neural network;Grad-CAM;Transfer learning}
     \endentry
     \entry{Majumder.30.03.2018}{misc}{}
       \name{author}{5}{}{%
@@ -126,7 +232,7 @@
       \field{abstract}{Extracting accurate attribute qualities from product titles is a vital component in delivering eCommerce customers with a rewarding online shopping experience via an enriched faceted search. We demonstrate the potential of Deep Recurrent Networks in this domain, primarily models such as Bidirectional LSTMs and Bidirectional LSTM-CRF with or without an attention mechanism. These have improved overall F1 scores, as compared to the previous benchmarks (More et al.) by at least 0.0391, showcasing an overall precision of 97.94{\%}, recall of 94.12{\%} and the F1 score of 0.9599. This has made us achieve a significant coverage of important facets or attributes of products which not only shows the efficacy of deep recurrent models over previous machine learning benchmarks but also greatly enhances the overall customer experience while shopping online.}
       \field{title}{Deep Recurrent Neural Networks for Product Attribute Extraction in eCommerce}
       \verb{file}
-      \verb Majunder_Deep:C\:\\Users\\thilo\\OneDrive\\Dokumente\\UniversitätLeipzig\\DataScience2\\BigData\\BigDataPrak\\Citavi Attachments\\Majunder_Deep.pdf:pdf
+      \verb Majunder_Deep:C\:\\Users\\thilo\\OneDrive\\Dokumente\\UniversitätLeipzig\\DataScience2\\BigData\\BigDataPrakCitavi\\Citavi Attachments\\Majunder_Deep.pdf:pdf
       \endverb
       \verb{urlraw}
       \verb http://arxiv.org/pdf/1803.11284v1
@@ -136,6 +242,61 @@
       \endverb
       \keyw{Computer Science - Artificial Intelligence;Computer Science - Computation and Language}
       \warn{\item Entry 'Majumder.30.03.2018' (Expose.bib): Invalid format '30.03.2018' of date field 'date' - ignoring}
+    \endentry
+    \entry{Zhu.2018}{article}{}
+      \name{author}{4}{}{%
+        {{un=0,uniquepart=base,hash=7073ad1ffaff73809b226c67fb4a102a}{%
+           family={Zhu},
+           familyi={Z\bibinitperiod},
+           given={Qile},
+           giveni={Q\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=a6278bd27ac7d7873f7c9aa0363482b8}{%
+           family={Li},
+           familyi={L\bibinitperiod},
+           given={Xiaolin},
+           giveni={X\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=46ac78fbd54553b601aabc1555223898}{%
+           family={Conesa},
+           familyi={C\bibinitperiod},
+           given={Ana},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=8e226665f90905a07cef87678114f9fa}{%
+           family={Pereira},
+           familyi={P\bibinitperiod},
+           given={Cécile},
+           giveni={C\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{35797db37316b9f5da1f0e28423b9e93}
+      \strng{fullhash}{d90bd76333c293c9a37879bd4b5be0de}
+      \strng{bibnamehash}{35797db37316b9f5da1f0e28423b9e93}
+      \strng{authorbibnamehash}{35797db37316b9f5da1f0e28423b9e93}
+      \strng{authornamehash}{35797db37316b9f5da1f0e28423b9e93}
+      \strng{authorfullhash}{d90bd76333c293c9a37879bd4b5be0de}
+      \field{sortinit}{Z}
+      \field{sortinithash}{96892c0b0a36bb8557c40c49813d48b3}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Motivation Best performing named entity recognition (NER) methods for biomedical literature are based on hand-crafted features or task-specific rules, which are costly to produce and difficult to generalize to other corpora. End-to-end neural networks achieve state-of-the-art performance without hand-crafted features and task-specific knowledge in non-biomedical NER tasks. However, in the biomedical domain, using the same architecture does not yield competitive performance compared with conventional machine learning models. Results We propose a novel end-to-end deep learning approach for biomedical NER tasks that leverages the local contexts based on n-gram character and word embeddings via Convolutional Neural Network (CNN). We call this approach GRAM-CNN. To automatically label a word, this method uses the local information around a word. Therefore, the GRAM-CNN method does not require any specific knowledge or feature engineering and can be theoretically applied to a wide range of existing NER problems. The GRAM-CNN approach was evaluated on three well-known biomedical datasets containing different BioNER entities. It obtained an F1-score of 87.26{\%} on the Biocreative II dataset, 87.26{\%} on the NCBI dataset and 72.57{\%} on the JNLPBA dataset. Those results put GRAM-CNN in the lead of the biological NER methods. To the best of our knowledge, we are the first to apply CNN based structures to BioNER problems. Availability and implementation The GRAM-CNN source code, datasets and pre-trained model are available online at: https://github.com/valdersoul/GRAM-CNN. Contact andyli@ece.ufl.edu or aconesa@ufl.edu. Supplementary information Supplementary data are available at Bioinformatics online.}
+      \field{journaltitle}{Bioinformatics (Oxford, England)}
+      \field{number}{9}
+      \field{title}{GRAM-CNN: a deep learning approach with local context for named entity recognition in biomedical text}
+      \field{volume}{34}
+      \field{year}{2018}
+      \field{pages}{1547\bibrangedash 1554}
+      \range{pages}{8}
+      \verb{doi}
+      \verb 10.1093/bioinformatics/btx815
+      \endverb
+      \verb{file}
+      \verb btx815:C\:\\Users\\thilo\\OneDrive\\Dokumente\\UniversitätLeipzig\\DataScience2\\BigData\\BigDataPrakCitavi\\Citavi Attachments\\btx815.pdf:pdf
+      \endverb
+      \keyw{Computational Biology/methods;Deep Learning;Software}
     \endentry
   \enddatalist
 \endrefsection

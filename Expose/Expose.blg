@@ -1,17 +1,17 @@
 [0] Config.pm:311> INFO - This is Biber 2.16
 [0] Config.pm:314> INFO - Logfile is 'Expose.blg'
 [113] biber-MSWIN64:340> INFO - === 
-[148] Biber.pm:415> INFO - Reading 'Expose.bcf'
-[264] Biber.pm:952> INFO - Found 2 citekeys in bib section 0
-[279] Biber.pm:4340> INFO - Processing section 0
-[290] Biber.pm:4531> INFO - Looking for bibtex format file 'Expose.bib' for section 0
-[340] bibtex.pm:1689> INFO - LaTeX decoding ...
-[357] bibtex.pm:1494> INFO - Found BibTeX data source 'Expose.bib'
-[394] Utils.pm:395> WARN - Entry 'Majumder.30.03.2018' (Expose.bib): Invalid format '30.03.2018' of date field 'date' - ignoring
-[410] UCollate.pm:68> INFO - Overriding locale 'de-DE' defaults 'variable = shifted' with 'variable = non-ignorable'
-[410] UCollate.pm:68> INFO - Overriding locale 'de-DE' defaults 'normalization = NFD' with 'normalization = prenormalized'
-[410] Biber.pm:4168> INFO - Sorting list 'nyt/global//global/global' of type 'entry' with template 'nyt' and locale 'de-DE'
-[410] Biber.pm:4174> INFO - No sort tailoring available for locale 'de-DE'
-[417] bbl.pm:654> INFO - Writing 'Expose.bbl' with encoding 'UTF-8'
-[419] bbl.pm:757> INFO - Output to Expose.bbl
-[420] Biber.pm:128> INFO - WARNINGS: 1
+[147] Biber.pm:415> INFO - Reading 'Expose.bcf'
+[264] Biber.pm:952> INFO - Found 5 citekeys in bib section 0
+[280] Biber.pm:4340> INFO - Processing section 0
+[292] Biber.pm:4531> INFO - Looking for bibtex format file 'Expose.bib' for section 0
+[344] bibtex.pm:1689> INFO - LaTeX decoding ...
+[370] bibtex.pm:1494> INFO - Found BibTeX data source 'Expose.bib'
+[408] Utils.pm:395> WARN - Entry 'Majumder.30.03.2018' (Expose.bib): Invalid format '30.03.2018' of date field 'date' - ignoring
+[443] UCollate.pm:68> INFO - Overriding locale 'de-DE' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[443] UCollate.pm:68> INFO - Overriding locale 'de-DE' defaults 'variable = shifted' with 'variable = non-ignorable'
+[443] Biber.pm:4168> INFO - Sorting list 'nyt/global//global/global' of type 'entry' with template 'nyt' and locale 'de-DE'
+[443] Biber.pm:4174> INFO - No sort tailoring available for locale 'de-DE'
+[453] bbl.pm:654> INFO - Writing 'Expose.bbl' with encoding 'UTF-8'
+[459] bbl.pm:757> INFO - Output to Expose.bbl
+[459] Biber.pm:128> INFO - WARNINGS: 1

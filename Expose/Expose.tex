@@ -14,7 +14,8 @@
 
 %opening
 \title{Big Data Praktikum: \\ Attribute extraction from eCommerce product descriptions}
-\author{Gruppe: Gregor Pfänder, Thilo Brummerloh}
+\author{Gregor Pfänder 
+\and Thilo Brummerloh}
 
 \begin{document}
 	\maketitle
@@ -24,20 +25,39 @@
 	
 	\section{Fragestellung}
 	Es sollte möglich sein mithilfe von einem Computerprogramm diese Arbeit automatisch durchzuführen. Sollte ein Produkt auf einer WEbseite keine Produktinformationen haben entsteht ein schwierigeres Problem der Identifikation. Wenn allerdings Produktspezifikationen innerhalb eines Freitextes vorliegen, sollte es möglich sein daraus Wörter und Wortgruppen zu erkennen und einer Spezifikation zuzuweisen.
-	Es soll eine Methode zur Entity Resolution ausgewählt werden. Damit 
+	Es soll eine Methode zur Named Entity Recognition ausgewählt werden.
 	
-	\section{Daten}
-	Je nach Methodenwahl werden unterschiedliche Daten benötigt. Zur Entity Resolution wäre nur ein Menge von ungeordneten Produktbeschreibungen nötig. Wenn allerdings zusätzlich ein Neural Network trainiert werden soll ist es auch nötig einen bereits gelabelten Datensatz zum training zu haben.
 	
 	\section{Methoden}
 	\subsection{Auswahl der Methode}
-	Machine Learning oder irgendeine Regelbasierte Methode? Machine Learning
+	Alle Methoden lassen sich unter dem Begriff Named Entity Recognition zusammenfassen. Um das Problem zu lösen werden Machine Learning Methoden verwendet. Diese können in Überwachte und unüberwachte Ansätz gegliedert werden.
 	
+	Überwachte Ansätze basieren meist auf CRF und HMM
+	
+	\subsubsection{Naive Bayes}
+	Naive Bayes Ansätze waren sehr beliebt\footcite{Ghani.2006}
+	Eine Möglichkeit des NER liegt darin das Klassifizierungsproblem mit einem Naive Bayes Klassifikators zu lösen. Bei Naive Bayes wird sich ‚supervised learning‘ zu nutzen gemacht. Es werden also gelabelte Trainingsdaten benötigt. Anhand der Trainingsdaten werden für alle Werte die Wahrscheinlichkeiten bestimmt, dass der Wert einer bestimmten Klasse zugehört (bzw. eine Hypothese erfüllt). In unserem Fall könnten die Werte die Wörter einer Sequenz und mögliche Klassen ‚Attribut‘, ‚Attributwert‘ und ‚Keins von beiden‘ sein. Nachdem die Wahrscheinlichkeiten bekannt sind, können anhand des Naive Bayes Klassifikators die ungelabelten Daten immer der Klasse mit der höchsten Wahrscheinlichkeit zugeordnet werden. Um eine erfolgreiche NER Methode auf Basis von Naive Bayes entwickeln zu können benötigt es noch weitere Schritte wie beispielsweise das Verlinken zwischen Attributen und Attributwerten. 
+	Bewertung: Der Naive Bayes Klassifikator ist ein weiteverbreitetes Mittel zur Textklassifizierung und wird beispielsweise bei Spam Filtern erfolgreich eingesetzt um Wörter in die Klassen ‚Spam‘ (Schlecht) oder ‚Ham‘ (gut) einzuordnen. Allerdings ist der Ansatz wie bereits im Namen steht naiv. Er geht davon aus, dass keine Beziehungen zwischen den Werten bestehen. Diese sich also nicht gegenseitig beeinflussen. Diese Annahme ist kritisch bei der Textverarbeitung. In unserem Anwendungsfall könnte sich das unter anderem negativ auf die Extraktion von Attributwerten welche aus mehreren Wörtern zusammengesetzt sind auswirken. Bei solchen Attributwerten bestehen Abhängigkeiten zwischen mehreren Wörtern, die das Modell beachten sollte.
+	\footnote{(Quelle: Text Mining for Product Attribute Extraction)
+	(Quelle: https://course.elementsofai.com/de/3/3)}
+	\subsubsection{RNNs (LSTMs)}
+	RNNs sind die Standardmethode für Textklassifikation, dabei wird meist die Spezialform der LSTMs verwendet.\footcite{Majumder.30.03.2018}
+	\subsubsection{CNNs}
+	Neueste Ansätze verwenden CNNs zur Klassifikation. \cite{Zhu.2018} haben erfolgreich ein CNN verwendet um 2017 die genaueste Methode zur Named Entity Recognition von verschiedenen Biologieliteraturkorpora vorzustellen. Die GRAM-CNN genannte Methode hat laut den Autoren für das labeling von Biologieliteratur einen Genauigkeitsvorteil indem, nicht wie in klassischen LSTMs der ganze Satz betrachtet wurde, sondern nur die um ein Wort liegenden Nachbarworte. Die Worte, dieser N-Gram genannten Wortketten, werden in einem ersten Schritt zu einer Darstellung umgewandelt, die nicht das Wort selber enthält, sondern das Wort durch seine einzelnen Buchstaben als Vektor darstellt. Dazu wird dem Wort noch ein Part-of-Speech tag zugewiesen und der Character des Worts als Vektor dargestellt. 
+	Die Vektorisierung erfolgt durch Abgleich der Worte mit vorgefertigte Bibliotheken die auf ähnlichen Korpora Vektoren berechnet haben. Das Part-of-Speech tag enthält Informationen zu Abhängigkeiten eines Wortes zu anderen. Eine Eingabe in das GRAM-CNN ist also ein n-gram, das wie beschrieben durch seine Buchstaben mit Zusatzinformationen dargestellt wird.
+	Innerhalb des CNNs wird diese Information versteckt verarbeitet und es liefert die features der Worte an ein CRF in dem die Verbindung von mehreren Worten erkannt werden kann. Damit sind auch auseinander geschriebene zusammengehörige Worte als solche erkennbar.\\
+	CNNs wurden auch in \cite{Lee.2019} und \cite{Lee.2020} verwendet um Produkteigenschaften aus Benutzerbewertungen zu extrahieren. Mit den extrahierten Eigenschaften werden von den Autoren letztlich Sentiment-Scores der Benutzerbewertungen erstellt, die nicht nur die Erwähnung von bewertbaren Wörtern zählen, sondern auch die relative Gewichtung von verschiedenen Eigenschaften des bewerteten Produkts herausfinden.\\
+	
+	
+	\subsubsection{Andere Überlegungen}
 	Supervised Learning, semi-supervised Learning\footcite{Ghani.2006}, oder Unsupervised Learning? Semi, oder Unsupervised Learning
 	
-	Klassische RNNs oder LSTMs? LSTM optimalerweise\footcite{Majumder.30.03.2018}{S. 3}
+	Klassische RNNs oder LSTMs? LSTM optimalerweise\footcite{Majumder.30.03.2018}{S. 3} Majumder beschreibt verschieden tiefe LSTMs, 
 	\subsection{Trainieren des Modells}
 	
-	
+	\section{Daten}
+	\subsection{Trainingsdaten}
+		Je nach Methodenwahl werden unterschiedliche Daten benötigt. Zur Entity Resolution wäre nur ein Menge von ungeordneten Produktbeschreibungen nötig. Wenn allerdings zusätzlich ein Neural Network trainiert werden soll ist es auch nötig einen bereits gelabelten Datensatz zum training zu haben.
+	\subsection{Zu klassifizierende Daten}
 	\printbibliography[title=Literaturverzeichnis]
 \end{document}

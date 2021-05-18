@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (MiKTeX 21.3) (preloaded format=pdflatex 2021.4.23)  18 MAY 2021 16:28
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (MiKTeX 21.3) (preloaded format=pdflatex 2021.4.23)  18 MAY 2021 17:05
 entering extended mode
 **./Expose.tex
 (Expose.tex
@@ -1372,22 +1372,51 @@ LaTeX Font Info:    Trying to load font information for U+msb on input line 22.
 
 (C:\Program Files\MiKTeX\tex/latex/amsfonts\umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-)
-Underfull \hbox (badness 10000) in paragraph at lines 42--42
+) [1
+
+
+{C:/Users/thilo/AppData/Local/MiKTeX/pdftex/config/pdftex.map}]
+Underfull \hbox (badness 10000) in paragraph at lines 47--47
   [][][]\OT1/cmr/m/n/10 (Quelle: Text Mi-ning for Pro-duct At-tri-bu-te Ex-trac
 -ti-on) (Quel-le: htt-
  []
 
-[1
 
-
-{C:/Users/thilo/AppData/Local/MiKTeX/pdftex/config/pdftex.map}]
-Underfull \hbox (badness 10000) in paragraph at lines 44--48
+Underfull \hbox (badness 10000) in paragraph at lines 49--53
 
  []
 
-[2] [3]
-Underfull \hbox (badness 10000) in paragraph at lines 89--95
+[2]
+Underfull \hbox (badness 10000) in paragraph at lines 63--64
+
+ []
+
+[3]
+Overfull \hbox (42.50882pt too wide) in paragraph at lines 81--90
+\OT1/cmtt/m/n/12 productdecription: "Broan TEN136WW Overview The Tenya 1 Series
+ Under Cabinet
+ []
+
+
+Overfull \hbox (36.33382pt too wide) in paragraph at lines 81--90
+\OT1/cmtt/m/n/12 Range Hood by Broan offers 2-speed motor with up to 250 CFM of
+ ventilation.
+ []
+
+
+Overfull \hbox (5.4588pt too wide) in paragraph at lines 81--90
+\OT1/cmtt/m/n/12 [...] Vertical/Horizontal Rectangular Duct 7 in. Vertical Roun
+d Duct 1
+ []
+
+
+Overfull \hbox (36.33382pt too wide) in paragraph at lines 81--90
+\OT1/cmtt/m/n/12 url: https://www.appliancesconnection.com/broan-ten136ww.html?
+zipcode=20001 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 91--97
 
  []
 
@@ -1399,10 +1428,10 @@ Package logreq Info: Writing requests to 'Expose.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 21015 strings out of 479330
- 372924 string characters out of 2866732
- 1276210 words of memory out of 3000000
- 38143 multiletter control sequences out of 15000+600000
+ 20995 strings out of 479330
+ 372337 string characters out of 2866732
+ 1276202 words of memory out of 3000000
+ 38127 multiletter control sequences out of 15000+600000
  413702 words of font info for 67 fonts, out of 8000000 for 9000
  1143 hyphenation exceptions out of 8191
  111i,8n,116p,10630b,2241s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1415,9 +1444,9 @@ ic/amsfonts/cm/cmr17.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/c
 m/cmr7.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:
 /Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmti12.pfb><C:/Program Fil
 es/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
-Output written on Expose.pdf (5 pages, 146424 bytes).
+Output written on Expose.pdf (5 pages, 145887 bytes).
 PDF statistics:
- 159 PDF objects out of 1000 (max. 8388607)
- 30 named destinations out of 1000 (max. 500000)
- 105 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 144 PDF objects out of 1000 (max. 8388607)
+ 26 named destinations out of 1000 (max. 500000)
+ 89 words of extra memory for PDF output out of 10000 (max. 10000000)
 

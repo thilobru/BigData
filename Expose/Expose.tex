@@ -58,7 +58,41 @@
 	
 	\section{Daten}
 	\subsection{Trainingsdaten}
-		Je nach Methodenwahl werden unterschiedliche Daten benötigt. Zur Entity Resolution wäre nur ein Menge von ungeordneten Produktbeschreibungen nötig. Wenn allerdings zusätzlich ein Neural Network trainiert werden soll ist es auch nötig einen bereits gelabelten Datensatz zum training zu haben.
+	Je nach Methodenwahl werden unterschiedliche Daten benötigt. Zur Entity Resolution wäre nur ein Menge von ungeordneten Produktbeschreibungen nötig. Wenn allerdings zusätzlich ein Neural Network trainiert werden soll ist es auch nötig einen bereits gelabelten Datensatz zum training zu haben.
 	\subsection{Zu klassifizierende Daten}
+	\subsection{Beschreibung Datensatz}
+		Zur Verfügung steht ein Datensatz mit 56005 Produkten in Form einer .csv Datei. Bei den Produkten, die in den Daten erfasst wurden, handelt es sich um unterschiedliche Arten von Haushaltsgeräten. Die Produkte reichen dabei von Waschmaschinen und Wäschetrocknern bis zu Kühlschränken und Mikrowellen. Eine genaue Zusammenfassung welche Produkttypen genau in den Daten vorkommen kann durch eine erste Datenbegutachtung nicht getroffen werden. Der Produkttyp wäre also ein weiteres Attribut, bei dem eine Extraktion sinnvoll wäre.
+		Die Werte wurden aus den Produktseiten verschiedener eCommerce Seiten extrahiert. Die Aufteilung der Daten nach Quelle ist wie folgt:
+		Quelle	Anzahl
+		shopee.my	24849
+		appliancesconnection.us	21434
+		sharafdg.ae	5443
+		productreview.au	2502
+		spencerstv.us	1777
+		
+		Nachdem die .csv Datei mithilfe von Pandas in ein Dataframe überführt wurde, erhält man die Nachfolgende Datenstruktur:
+		id	source	name 	productdescription	url	brand	modelnumber
+		…	…	…	…	…	…	…
+		…	…	…	…	…	…	…
+		…	…	…	…	…	…	…
+		
+		Die Zeilen von Interesse sind ‚name‘ und ‚productdescription‘. In diesen Feldern stehen die Sequenzen, aus denen die Attribute extrahiert werden sollen. Außerdem ist der Datensatz bereits für die Attribute ‚brand‘ und ‚modelnumber‘ gelabelt. 
+		(der Absatz könnte weggelassen werden. Um einen ersten Eindruck der Daten zu bekommen wird nachfolgen der erste Eintrag des Datensatzes aufgeführt:
+		id: 000266f5e7ab2344315290174dfb75f7
+		source: appliancesconnection.us
+		name: "Broan TEN136WW"
+		productdecription: "Broan TEN136WW Overview The Tenya 1 Series Under Cabinet Range Hood by Broan offers 2-speed motor with up to 250 CFM of ventilation. The hood also features the Captur™ System, rocker switches and a mesh filter. Available at AppliancesConnection Features: Captur™ System The Captur™ system’s advanced blower design features a forward positioned centric inlet to remove smoke and odor faster. Two-speed blower control exhausts at 250 CFM Max high Quiet Operation Smooth-flow blower wheel design and high flow filters ensure quiet, 1.5 sones operation at normal speed Halogen Lighting Two-level, halogen bulbs flood the cooktop and surrounding area with generous illumination. (50W bulbs sold separately.) Rocker Switches Hidden on/off rocker switches controls two blower speeds and light levels Mesh Filter Large dishwasher-safe, single open mesh filter provides efficient grease removal Additional Features: ADA capable (Kit Sold Separately) Non-duct capable (Filter Sold Separately) 3¼ in. x 10 in. Vertical/Horizontal Rectangular Duct 7 in. Vertical Round Duct 1 Year Limited Warranty"
+		url: https://www.appliancesconnection.com/broan-ten136ww.html?zipcode=20001
+		brand: Broan
+		modelnumber: TEN136WW)
+		
+		Bei der ersten Begutachtung der Daten sind einige Problemstellen und mögliche Störfaktoren …:
+		1.	“-Zeichen wird in der Zeile ‚productdescription‘ oft als Größen Bezeichnung benutzt  Dadurch denkt Pandas, dass der Satz vorbei ist und jedes weiter Komma wird als neue Zeile interpretiert…
+		2.	Chinesiche Ziechen bei mind. einem Produkt
+		3.	Andere Sonderzeichen  verarbeitbar oder Störfaktoren?
+		4.	Verschiedene Quellen könnten zu verschiedenen Mustern führen  Beobachten wie gut unser Modell je nach Quelle funktioniert.
+		5.	Marke und Modelnummer zu einfach zu extrahieren?  weitere Attribute festlegen und von Hand labeln?
+		
+		
 	\printbibliography[title=Literaturverzeichnis]
 \end{document}

@@ -19,6 +19,49 @@
 
 \refsection{0}
   \datalist[entry]{nyt/global//global/global}
+    \entry{Cleve.2016}{book}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=860e6ff15cc4c8af39cbfcf32cc98452}{%
+           family={Cleve},
+           familyi={C\bibinitperiod},
+           given={Jürgen},
+           giveni={J\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=ba02cfff321f67b74655d1f4c887136f}{%
+           family={Lämmel},
+           familyi={L\bibinitperiod},
+           given={Uwe},
+           giveni={U\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{location}{2}{%
+        {Berlin}%
+        {Boston}%
+      }
+      \list{publisher}{1}{%
+        {De Gruyter Oldenbourg}%
+      }
+      \strng{namehash}{b7020cfa77706faaf6725acc5c379016}
+      \strng{fullhash}{b7020cfa77706faaf6725acc5c379016}
+      \strng{bibnamehash}{b7020cfa77706faaf6725acc5c379016}
+      \strng{authorbibnamehash}{b7020cfa77706faaf6725acc5c379016}
+      \strng{authornamehash}{b7020cfa77706faaf6725acc5c379016}
+      \strng{authorfullhash}{b7020cfa77706faaf6725acc5c379016}
+      \field{sortinit}{C}
+      \field{sortinithash}{4d103a86280481745c9c897c925753c0}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{edition}{2. Auflage}
+      \field{isbn}{978-3-11-045675-2}
+      \field{series}{Studium}
+      \field{title}{Data mining}
+      \field{year}{2016}
+      \verb{file}
+      \verb http://d-nb.info/1088328350/04
+      \endverb
+    \endentry
     \entry{Ghani.2006}{article}{}
       \name{author}{5}{}{%
         {{un=0,uniquepart=base,hash=6cfc641e2ca8f9579534edebf4ffb064}{%
@@ -185,7 +228,7 @@
       \endverb
       \keyw{Attribute extraction;Attribute prioritization;Convolutional neural network;Explainable neural network;Grad-CAM;Transfer learning}
     \endentry
-    \entry{Majumder.30.03.2018}{misc}{}
+    \entry{Majumder.2018}{misc}{}
       \name{author}{5}{}{%
         {{un=0,uniquepart=base,hash=f9ef98b48c693c8ff7a12cb671c7a5e6}{%
            family={Majumder},
@@ -226,11 +269,14 @@
       \strng{authorfullhash}{ed98e1a6ff7c81181e23bd161fc4ee72}
       \field{sortinit}{M}
       \field{sortinithash}{4625c616857f13d17ce56f7d4f97d451}
-      \field{labeldatesource}{nodate}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{abstract}{Extracting accurate attribute qualities from product titles is a vital component in delivering eCommerce customers with a rewarding online shopping experience via an enriched faceted search. We demonstrate the potential of Deep Recurrent Networks in this domain, primarily models such as Bidirectional LSTMs and Bidirectional LSTM-CRF with or without an attention mechanism. These have improved overall F1 scores, as compared to the previous benchmarks (More et al.) by at least 0.0391, showcasing an overall precision of 97.94{\%}, recall of 94.12{\%} and the F1 score of 0.9599. This has made us achieve a significant coverage of important facets or attributes of products which not only shows the efficacy of deep recurrent models over previous machine learning benchmarks but also greatly enhances the overall customer experience while shopping online.}
       \field{title}{Deep Recurrent Neural Networks for Product Attribute Extraction in eCommerce}
+      \field{year}{2018}
+      \field{dateera}{ce}
       \verb{file}
       \verb Majunder_Deep:C\:\\Users\\thilo\\OneDrive\\Dokumente\\UniversitätLeipzig\\DataScience2\\BigData\\BigDataPrakCitavi\\Citavi Attachments\\Majunder_Deep.pdf:pdf
       \endverb
@@ -241,7 +287,79 @@
       \verb http://arxiv.org/pdf/1803.11284v1
       \endverb
       \keyw{Computer Science - Artificial Intelligence;Computer Science - Computation and Language}
-      \warn{\item Entry 'Majumder.30.03.2018' (Expose.bib): Invalid format '30.03.2018' of date field 'date' - ignoring}
+    \endentry
+    \entry{Zheng.2018}{inproceedings}{}
+      \name{author}{4}{}{%
+        {{un=0,uniquepart=base,hash=5794422819f20abab5416b26ef567f74}{%
+           family={Zheng},
+           familyi={Z\bibinitperiod},
+           given={Guineng},
+           giveni={G\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=d31fb3fa3d95b068393f6edd03ae7de0}{%
+           family={Mukherjee},
+           familyi={M\bibinitperiod},
+           given={Subhabrata},
+           giveni={S\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=3fb05cb08a8960aeecf7fa6c8a880f1c}{%
+           family={Dong},
+           familyi={D\bibinitperiod},
+           given={Xin\bibnamedelima Luna},
+           giveni={X\bibinitperiod\bibinitdelim L\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=65dc7c16174f4ebc47ccdc01e74939f2}{%
+           family={Li},
+           familyi={L\bibinitperiod},
+           given={Feifei},
+           giveni={F\bibinitperiod},
+           givenun=0}}%
+      }
+      \name{editor}{2}{}{%
+        {{hash=58b943c16d81924d67ac9b688eb43f13}{%
+           family={Guo},
+           familyi={G\bibinitperiod},
+           given={Yike},
+           giveni={Y\bibinitperiod}}}%
+        {{hash=f205c2d4ccbaabd51d290920e3431ce9}{%
+           family={Farooq},
+           familyi={F\bibinitperiod},
+           given={Faisal},
+           giveni={F\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {New York, NY, USA}%
+      }
+      \list{publisher}{1}{%
+        {ACM}%
+      }
+      \strng{namehash}{d6f7b81b643ca9ea652921800a611d3c}
+      \strng{fullhash}{afb130959af791e685691a57567acfb4}
+      \strng{bibnamehash}{d6f7b81b643ca9ea652921800a611d3c}
+      \strng{authorbibnamehash}{d6f7b81b643ca9ea652921800a611d3c}
+      \strng{authornamehash}{d6f7b81b643ca9ea652921800a611d3c}
+      \strng{authorfullhash}{afb130959af791e685691a57567acfb4}
+      \strng{editorbibnamehash}{0ba4cbc0ecde7bac527d3bb9542d4116}
+      \strng{editornamehash}{0ba4cbc0ecde7bac527d3bb9542d4116}
+      \strng{editorfullhash}{0ba4cbc0ecde7bac527d3bb9542d4116}
+      \field{sortinit}{Z}
+      \field{sortinithash}{96892c0b0a36bb8557c40c49813d48b3}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Proceedings of the 24th ACM SIGKDD International Conference on Knowledge Discovery {\&} Data Mining}
+      \field{isbn}{9781450355520}
+      \field{title}{OpenTag}
+      \field{year}{2018}
+      \field{pages}{1049\bibrangedash 1058}
+      \range{pages}{10}
+      \verb{doi}
+      \verb 10.1145/3219819.3219839
+      \endverb
+      \verb{file}
+      \verb 1806.01264:C\:\\Users\\thilo\\OneDrive\\Dokumente\\UniversitätLeipzig\\DataScience2\\BigData\\BigDataPrakCitavi\\Citavi Attachments\\1806.01264.pdf:pdf
+      \endverb
     \endentry
     \entry{Zhu.2018}{article}{}
       \name{author}{4}{}{%

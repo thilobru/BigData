@@ -2350,7 +2350,13 @@
     <bcf:citekey order="2">Zhu.2018</bcf:citekey>
     <bcf:citekey order="3">Lee.2019</bcf:citekey>
     <bcf:citekey order="4">Lee.2020</bcf:citekey>
-    <bcf:citekey order="5">Majumder.30.03.2018</bcf:citekey>
+    <bcf:citekey order="5">Majumder.2018</bcf:citekey>
+    <bcf:citekey order="6">Cleve.2016</bcf:citekey>
+    <bcf:citekey order="7">Cleve.2016</bcf:citekey>
+    <bcf:citekey order="8">Majumder.2018</bcf:citekey>
+    <bcf:citekey order="9">Zheng.2018</bcf:citekey>
+    <bcf:citekey order="10">Majumder.2018</bcf:citekey>
+    <bcf:citekey order="11">Zheng.2018</bcf:citekey>
   </bcf:section>
   <!-- SORTING TEMPLATES -->
   <bcf:sortingtemplate name="nyt">

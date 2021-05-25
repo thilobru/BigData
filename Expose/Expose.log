@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (MiKTeX 21.3) (preloaded format=pdflatex 2021.4.23)  21 MAY 2021 13:22
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (MiKTeX 21.3) (preloaded format=pdflatex 2021.4.23)  25 MAY 2021 09:13
 entering extended mode
 **./Expose.tex
 (Expose.tex
@@ -1365,81 +1365,76 @@ LaTeX Font Info:    Trying to load font information for U+msb on input line 22.
 
 (C:\Program Files\MiKTeX\tex/latex/amsfonts\umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-) [1
-
-
-{C:/Users/thilo/AppData/Local/MiKTeX/pdftex/config/pdftex.map}]
-Underfull \hbox (badness 10000) in paragraph at lines 47--47
+)
+Underfull \hbox (badness 10000) in paragraph at lines 37--37
   [][][]\OT1/cmr/m/n/10 (Quelle: Text Mi-ning for Pro-duct At-tri-bu-te Ex-trac
 -ti-on) (Quel-le: htt-
  []
 
+[1
 
-Underfull \hbox (badness 10000) in paragraph at lines 49--53
+
+{C:/Users/thilo/AppData/Local/MiKTeX/pdftex/config/pdftex.map}]
+Underfull \hbox (badness 10000) in paragraph at lines 39--43
 
  []
 
 [2]
-Underfull \hbox (badness 10000) in paragraph at lines 62--63
+Underfull \hbox (badness 10000) in paragraph at lines 52--53
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 64--65
 
  []
 
 [3]
-Underfull \hbox (badness 10000) in paragraph at lines 74--75
-
- []
-
-
-Overfull \hbox (927.35878pt too wide) in paragraph at lines 81--92
+Overfull \hbox (927.35878pt too wide) in paragraph at lines 71--82
 [] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 93--99
+Underfull \hbox (badness 10000) in paragraph at lines 83--89
 
  []
 
-[4]
-<CRISP-DMGregor.png, id=58, 992.20688pt x 608.2725pt>
+<CRISP-DMGregor.png, id=51, 992.20688pt x 608.2725pt>
 File: CRISP-DMGregor.png Graphic file (type png)
 <use CRISP-DMGregor.png>
-Package pdftex.def Info: CRISP-DMGregor.png  used on input line 113.
+Package pdftex.def Info: CRISP-DMGregor.png  used on input line 103.
 (pdftex.def)             Requested size: 426.79141pt x 261.6449pt.
- [5 <./CRISP-DMGregor.png>] [6] [7] (Expose.aux)
-
-LaTeX Warning: There were undefined references.
-
+[4] [5 <./CRISP-DMGregor.png>] [6] [7] (Expose.aux)
 Package rerunfilecheck Info: File `Expose.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
 
-Package biblatex Warning: Please (re)run Biber on the file:
-(biblatex)                Expose
-(biblatex)                and rerun LaTeX afterwards.
+
+Package biblatex Warning: Please rerun LaTeX.
+(biblatex)                Page breaks have changed.
 
 Package logreq Info: Writing requests to 'Expose.run.xml'.
 \openout1 = `Expose.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 21042 strings out of 479330
- 373402 string characters out of 2866732
- 1276312 words of memory out of 3000000
- 38161 multiletter control sequences out of 15000+600000
- 413702 words of font info for 67 fonts, out of 8000000 for 9000
+ 21037 strings out of 479330
+ 373351 string characters out of 2866732
+ 1276286 words of memory out of 3000000
+ 38158 multiletter control sequences out of 15000+600000
+ 413365 words of font info for 66 fonts, out of 8000000 for 9000
  1143 hyphenation exceptions out of 8191
  111i,8n,116p,10630b,2241s stack positions out of 5000i,500n,10000p,200000b,80000s
- <C:\Users\thilo\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm
-1200.pk><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/
-Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmcsc10.pfb><C:/Program Fil
-es/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Program Files/MiKTeX/fon
-ts/type1/public/amsfonts/cm/cmr12.pfb><C:/Program Files/MiKTeX/fonts/type1/publ
-ic/amsfonts/cm/cmr17.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/c
-m/cmr7.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:
-/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmti12.pfb><C:/Program Fil
-es/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
-Output written on Expose.pdf (7 pages, 206001 bytes).
+<C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Progra
+m Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmcsc10.pfb><C:/Program Files/MiK
+TeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Program Files/MiKTeX/fonts/typ
+e1/public/amsfonts/cm/cmr12.pfb><C:/Program Files/MiKTeX/fonts/type1/public/ams
+fonts/cm/cmr17.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7
+.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Progr
+am Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmti12.pfb><C:/Program Files/MiK
+TeX/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
+Output written on Expose.pdf (7 pages, 204653 bytes).
 PDF statistics:
- 195 PDF objects out of 1000 (max. 8388607)
- 37 named destinations out of 1000 (max. 500000)
- 142 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 184 PDF objects out of 1000 (max. 8388607)
+ 36 named destinations out of 1000 (max. 500000)
+ 134 words of extra memory for PDF output out of 10000 (max. 10000000)
 

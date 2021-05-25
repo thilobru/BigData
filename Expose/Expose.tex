@@ -19,18 +19,8 @@
 
 \begin{document}
 	\maketitle
-	
-	\section{Fragen für Freitag}
-	\begin{itemize}
-		\item Datenvorverarbeitung genau beschreiben?
-		\item Machine Learning/Neuronale Netzwerke genauer?
-		\item Was wird in Testat gefragt/Ablauf?
-		\item Welche Entscheidungen sollen fest stehen?
-		\item Weitere Attribute labeln/trainieren? Weitere Schritte wie labeln beschreiben?
-	\end{itemize}
-	
 	\section{Thema}
-	Produktseiten von Onlineshops enthalten oft viele unzureichend strukturierte Produktbeschreibungen oder sogar gar keine Beschreibungen. Zum Preisvergleich des gleichen Produkts auf verschiedenen Webseiten muss allerdings bekannt sein um welche Ausprägung eines Produkt es sich handelt. So können Preise nicht nur von Produkten, sondern auch ihren Unterausprägungen, wie dem Speicherplatz oder der Farbe, verglichen werden.
+	Produktseiten von Onlineshops enthalten oft viele unzureichend strukturierte Produktbeschreibungen oder sogar gar keine Beschreibungen. Zum Preisvergleich des gleichen Produkts auf verschiedenen Webseiten muss allerdings bekannt sein um welches Produkt, wo angeboten wird. So können Preise nicht nur von Produkten auf gut strukturierten Webseiten mit hoher Datenqualität verglichen werden. Es müsste allerdings eine weitere Verarbeitung von abgefragten Daten geben. Diese ist aufgrund der Anzahl an Produkten und eCommerce-Webseiten aber nicht händisch zu erledigen.
 	
 	\section{Fragestellung}
 	Es sollte möglich sein mithilfe von einem Computerprogramm diese Arbeit automatisch durchzuführen. Wenn Produktspezifikationen innerhalb eines Freitextes vorliegen, sollte es möglich sein daraus Wörter und Wortgruppen zu erkennen und einer Attributgruppe zuzuweisen.
@@ -105,10 +95,10 @@
 	Der Aufbau der Neuronalen Netze ist noch nicht endgültig festzulegen. Nach erster Implementierung werden verschiedene Tiefen und Zusammensetzungen von Ebenen ausprobiert um zu einem möglichst guten Ergebnis zu kommen. Dabei muss auch ein Ausgleich zwischen Geschwindigkeit und Genauigkeit der Klassifizierung gefunden werden.
 	
 	\subsection{Vorgehensweise:Ablauf} %Gregor
-	Die Vorgehensweise orientiert sich an der des CRISP-DM [Quelle: Jürgen Cleve, Uwe Lämmel, Data Mining, ISBN 978-3-11-045675-2] (vgl. Bild). 
+	Die Vorgehensweise orientiert sich an der des CRISP-DM von \cite{Cleve.2016} (vgl. Bild). 
 	
 	\begin{figure}
-		\caption{CRISP-DM von \cite{Cleve.2016}}
+		\caption{CRISP-DM in Eigendarstellung \cite{Cleve.2016}}
 		\centering
 		\includegraphics[width=\linewidth]{CRISP-DMGregor.png}
 	\end{figure}

@@ -19,20 +19,76 @@
 
 \begin{document}
 	\maketitle
+		
 	\section{Thema}
 	Produktseiten von Onlineshops enthalten oft viele unzureichend strukturierte Produktbeschreibungen oder sogar gar keine Beschreibungen. Zum Preisvergleich des gleichen Produkts auf verschiedenen Webseiten muss allerdings bekannt sein um welches Produkt, wo angeboten wird. So können Preise nicht nur von Produkten auf gut strukturierten Webseiten mit hoher Datenqualität verglichen werden. Es müsste allerdings eine weitere Verarbeitung von abgefragten Daten geben. Diese ist aufgrund der Anzahl an Produkten und eCommerce-Webseiten aber nicht händisch zu erledigen.
 	
 	\section{Fragestellung}
-	Es sollte möglich sein mithilfe von einem Computerprogramm diese Arbeit automatisch durchzuführen. Wenn Produktspezifikationen innerhalb eines Freitextes vorliegen, sollte es möglich sein daraus Wörter und Wortgruppen zu erkennen und einer Attributgruppe zuzuweisen.
+	Es sollte möglich sein mithilfe eines Computerprogramms die Extraktion von Attributen automatisch durchzuführen. Wenn Produktspezifikationen innerhalb eines Freitextes vorliegen, sollte es möglich sein daraus Wörter und Wortgruppen zu erkennen und einer Attributgruppe zuzuweisen.
 	Im Kontext dieser Arbeit werden Produkttitel und -beschreibungen auf eCommerceseiten verwendet um Produktmarke und Produktnummer mithilfe von Machine Learning zu extrahieren. Dieser Prozess wird auch Named Entity Recognition genannt.
 	
+	\section{Vorgehensweise} %Gregor
+	Die Vorgehensweise orientiert sich an der des CRISP-DM von \cite{Cleve.2016} (vgl. Bild). 
+	\begin{figure}
+		\caption{CRISP-DM in Eigendarstellung nach \cite{Cleve.2016}}
+		\centering
+		\includegraphics[width=\linewidth]{CRISP-DMGregor.png}
+	\end{figure}
+	Die Schritte Business Understanding und Data Understanding sind gleichzusetzen mit Kapitel 2 (Fragestellung) bzw. Kapitel 4 (Beschreibung Datensatz) Die eigentliche Entwicklung der Methode kann in die Schritte Data Preparation, Modelling, Evaluation und Deployment aufgeteilt werden. Die Schritte verschwimmen in der Praxis alle miteinander. Das eigentliche Konzept an dem sich orientiert wird besteht darin, dass das Modell schrittweise verbessert wird. Es wird also zuerst ein ‚einfaches‘ Modell entwickelt und dann nach einer Evaluation immer wieder verbessert, bis ein zufriedenstellendes Ergebnis vorliegt.
+	
+	\section{Daten}
+	\subsection{Beschreibung Datensatz}	
+	Je nach Methodenwahl werden unterschiedliche Daten benötigt. Wenn allerdings zusätzlich ein Neural Network trainiert werden soll ist es auch nötig einen bereits gelabelten Datensatz zum training zu haben.
+	
+	Zur Verfügung steht ein Datensatz mit 56005 Produkten in Form einer \texttt{.csv}-Datei. Bei den Produkten, die in den Daten erfasst wurden, handelt es sich um unterschiedliche Arten von Haushaltsgeräten. Die Produkte reichen dabei von Waschmaschinen und Wäschetrocknern bis zu Kühlschränken und Mikrowellen. Eine genaue Zusammenfassung welche Produkttypen in den Daten vorkommen, kann durch eine erste Datenbegutachtung nicht getroffen werden. Die Werte wurden aus den Produktseiten verschiedener eCommerce Seiten extrahiert. Die Aufteilung der Daten nach Quelle ist wie folgt:\\
+	
+	\begin{tabular}[h]{|l|r|}
+		\hline 
+		Quelle & Anzahl \\ \hline 
+		shopee.my&24849\\
+		appliancesconnection.us&21434\\
+		sharafdg.ae&5443\\
+		productreview.au&2502\\
+		spencerstv.us&1777\\ \hline
+	\end{tabular}
+	\newline
+	
+	Nachdem die .csv Datei mithilfe von Pandas in ein Dataframe überführt wurde, erhält man die Nachfolgende Datenstruktur:\\
+	
+	\begin{tabular}[h]{|c|c|c|c|c|c|c|}
+		\hline 
+		id & source & name & productdescription & url & brand & modelnumber \\ \hline 
+	\end{tabular}
+	\newline
+	
+	Die Zeilen von Interesse sind ‚name‘ und ‚productdescription‘. In diesen Feldern stehen die Sequenzen, aus denen die Attribute extrahiert werden sollen. Außerdem ist der Datensatz bereits für die Attribute ‚brand‘ und ‚modelnumber‘ gelabelt. 
+	(der Absatz könnte weggelassen werden. Um einen ersten Eindruck der Daten zu bekommen wird nachfolgen der erste Eintrag des Datensatzes aufgeführt:\\
+	\begin{tabular}[h]{rp{11.2cm}}
+		id & 000266f5e7ab2344315290174dfb75f7 \\
+		source & appliancesconnection.us\\
+		name & Broan TEN136WW\\
+		productdecription & Broan TEN136WW Overview The Tenya 1 Series Under Cabinet Range Hood by Broan offers 2-speed motor with up to 250 CFM of ventilation. [...] Vertical/Horizontal Rectangular Duct 7 in. Vertical Round Duct 1 Year Limited Warranty\\
+		url & https://www.appliancesconnection.com/broan-ten136ww.html?zipcode=20001\\
+		brand & Broan\\
+		modelnumber & TEN136WW
+	\end{tabular}
+	\newline
+	\newline
+	Bei der ersten Begutachtung der Daten sind einige Problemstellen und mögliche Störfaktoren:
+	\begin{enumerate}
+		\item “-Zeichen wird in der Zeile ‚productdescription‘ oft als Größen Bezeichnung benutzt: Dadurch denkt Pandas, dass der Satz/String vorbei ist und jedes weiter Komma wird als neue Zeile interpretiert
+		\item Chinesiche Zeichen bei mind. einem Produkt
+		\item Andere Sonderzeichen. Es gilt zu untersuchen ob diese verarbeitbar  oder Stör\-faktoren sind
+		\item Verschiedene Quellen könnten zu verschiedenen Mustern führen. Es sollte beobachtet werden wie sich das Modell je nach Quelle verhält.
+		\item Marke und Modellnummer sind bei mindestens einer Quelle sehr einfach zu bestimmen. Oft setzt sich der Produkttitel aus Marke und Modellnummer zusammen (siehe Beispieldatensatz). Hier sollte der Einfluss dieses Musters untersucht werden.
+	\end{enumerate}
+
 	\section{Methodenüberblick}
 	Alle Methoden lassen sich unter dem Begriff Named Entity Recognition zusammenfassen.	Nachfolgend werden ausgewählte Methoden erklärt. Bei allen handelt es sich um Machine Learning Ansätze. 
 	
 	\subsection{Naive Bayes}
-	Naive Bayes Ansätze waren sehr beliebt\footcite{Ghani.2006}
-	Eine Möglichkeit des NER liegt darin das Klassifizierungsproblem mit einem Naive Bayes Klassifikators zu lösen. Bei Naive Bayes wird sich ‚supervised learning‘ zu nutzen gemacht. Es werden also gelabelte Trainingsdaten benötigt. Anhand der Trainingsdaten werden für alle Werte die Wahrscheinlichkeiten bestimmt, dass der Wert einer bestimmten Klasse zugehört (bzw. eine Hypothese erfüllt). In unserem Fall könnten die Werte die Wörter einer Sequenz und mögliche Klassen ‚Attribut‘, ‚Attributwert‘ und ‚Keins von beiden‘ sein. Nachdem die Wahrscheinlichkeiten bekannt sind, können anhand des Naive Bayes Klassifikators die ungelabelten Daten immer der Klasse mit der höchsten Wahrscheinlichkeit zugeordnet werden. Um eine erfolgreiche NER Methode auf Basis von Naive Bayes entwickeln zu können benötigt es noch weitere Schritte wie beispielsweise das Verlinken zwischen Attributen und Attributwerten. 
-	Bewertung: Der Naive Bayes Klassifikator ist ein weiteverbreitetes Mittel zur Textklassifizierung und wird beispielsweise bei Spam Filtern erfolgreich eingesetzt um Wörter in die Klassen ‚Spam‘ (Schlecht) oder ‚Ham‘ (gut) einzuordnen. Allerdings ist der Ansatz wie bereits im Namen steht naiv. Er geht davon aus, dass keine Beziehungen zwischen den Werten bestehen. Diese sich also nicht gegenseitig beeinflussen. Diese Annahme ist kritisch bei der Textverarbeitung. In unserem Anwendungsfall könnte sich das unter anderem negativ auf die Extraktion von Attributwerten welche aus mehreren Wörtern zusammengesetzt sind auswirken. Bei solchen Attributwerten bestehen Abhängigkeiten zwischen mehreren Wörtern, die das Modell beachten sollte.
+	Eine Möglichkeit des NER liegt darin das Klassifizierungsproblem mit einem Naive Bayes Klassifikators zu lösen. Bei Naive Bayes wird sich ‚supervised learning‘ zu nutzen gemacht. Es werden also gelabelte Trainingsdaten benötigt. Anhand der Trainingsdaten werden für alle Werte die Wahrscheinlichkeiten bestimmt, dass der Wert einer bestimmten Klasse zugehört (bzw. eine Hypothese erfüllt). In unserem Fall könnten die Werte die Wörter einer Sequenz und mögliche Klassen ‚Attribut‘, ‚Attributwert‘ und ‚Keins von beiden‘ sein. Nachdem die Wahrscheinlichkeiten bekannt sind, können anhand des Naive Bayes Klassifikators die ungelabelten Daten immer der Klasse mit der höchsten Wahrscheinlichkeit zugeordnet werden. Um eine erfolgreiche NER Methode auf Basis von Naive Bayes entwickeln zu können benötigt es noch weitere Schritte wie beispielsweise das Verlinken zwischen Attributen und Attributwerten.\\
+	Der Naive Bayes Klassifikator ist ein weiteverbreitetes Mittel zur Textklassifizierung und wird beispielsweise bei Spam Filtern erfolgreich eingesetzt um Wörter in die Klassen ‚Spam‘ (Schlecht) oder ‚Ham‘ (Gut) einzuordnen. Allerdings ist der Ansatz wie bereits im Namen steht naiv. Er geht davon aus, dass keine Beziehungen zwischen den Werten bestehen. Diese sich also nicht gegenseitig beeinflussen. Diese Annahme ist kritisch bei der Textverarbeitung. In unserem Anwendungsfall könnte sich das unter anderem negativ auf die Extraktion von Attributwerten welche aus mehreren Wörtern zusammengesetzt sind auswirken. Bei solchen Attributwerten bestehen Abhängigkeiten zwischen mehreren Wörtern, die das Modell beachten sollte.
 	\footnote{(Quelle: Text Mining for Product Attribute Extraction)
 	(Quelle: https://course.elementsofai.com/de/3/3)}
 	\subsection{CNNs}
@@ -45,65 +101,13 @@
 	RNNs verwenden wie die vorherigen Methoden Trainingsdaten um einen Klassifikator zu trainieren. Eingaben sind Texte aus denen bereits die Interessanten Textstellen mit ihrer Beschreibung extrahiert wurden. Damit wird ein Neuronales Netzwerk trainiert.
 	Das trainierte Netzwerk ist dann in der Lage beliebige Texte einzulesen und die darin enthaltenen Entitäten in Form von Markennamen zu erkennen und zuzuordnen. Mit diesen Informationen sollte es möglich sein größere Korpora von Produktbeschreibungen automatisch mit Informationen anzureichern.
 
-	\section{Daten}
-	\subsection{Trainingsdaten}
-	Je nach Methodenwahl werden unterschiedliche Daten benötigt. Zur Entity Resolution wäre nur ein Menge von ungeordneten Produktbeschreibungen nötig. Wenn allerdings zusätzlich ein Neural Network trainiert werden soll ist es auch nötig einen bereits gelabelten Datensatz zum training zu haben.
-	\subsection{Beschreibung Datensatz}
-	Zur Verfügung steht ein Datensatz mit 56005 Produkten in Form einer \texttt{.csv}-Datei. Bei den Produkten, die in den Daten erfasst wurden, handelt es sich um unterschiedliche Arten von Haushaltsgeräten. Die Produkte reichen dabei von Waschmaschinen und Wäschetrocknern bis zu Kühlschränken und Mikrowellen. Eine genaue Zusammenfassung welche Produkttypen in den Daten vorkommen, kann durch eine erste Datenbegutachtung nicht getroffen werden. Der Produkttyp wäre also ein weiteres Attribut, bei dem eine Extraktion sinnvoll wäre. Die Werte wurden aus den Produktseiten verschiedener eCommerce Seiten extrahiert. Die Aufteilung der Daten nach Quelle ist wie folgt:\\
-	
-	\begin{tabular}[h]{|l|r|}
-		\hline 
-		Quelle & Anzahl \\ \hline 
-		shopee.my&24849\\
-		appliancesconnection.us&21434\\
-		sharafdg.ae&5443\\
-		productreview.au&2502\\
-		spencerstv.us&1777\\ \hline
-	\end{tabular}
-	
-	Nachdem die .csv Datei mithilfe von Pandas in ein Dataframe überführt wurde, erhält man die Nachfolgende Datenstruktur:\\
-	
-	\begin{tabular}[h]{|c|c|c|c|c|c|c|}
-		\hline 
-		id & source & name & productdescription & url & brand & modelnumber \\ \hline 
-	\end{tabular}
-
-	Die Zeilen von Interesse sind ‚name‘ und ‚productdescription‘. In diesen Feldern stehen die Sequenzen, aus denen die Attribute extrahiert werden sollen. Außerdem ist der Datensatz bereits für die Attribute ‚brand‘ und ‚modelnumber‘ gelabelt. 
-	(der Absatz könnte weggelassen werden. Um einen ersten Eindruck der Daten zu bekommen wird nachfolgen der erste Eintrag des Datensatzes aufgeführt:\\
-	\begin{tabular}[h]{rl}
-		id & 000266f5e7ab2344315290174dfb75f7 \\
-		source & appliancesconnection.us\\
-		name & Broan TEN136WW\\
-		productdecription & Broan TEN136WW Overview The Tenya 1 Series Under Cabinet Range Hood by Broan offers 2-speed motor with up to 250 CFM of ventilation. [...] Vertical/Horizontal Rectangular Duct 7 in. Vertical Round Duct 1 Year Limited Warranty\\
-		url & https://www.appliancesconnection.com/broan-ten136ww.html?zipcode=20001\\
-		brand & Broan\\
-		modelnumber & TEN136WW
-	\end{tabular}
-		
-	Bei der ersten Begutachtung der Daten sind einige Problemstellen und mögliche Störfaktoren …:\\
-		1.	“-Zeichen wird in der Zeile ‚productdescription‘ oft als Größen Bezeichnung benutzt: Dadurch denkt Pandas, dass der Satz vorbei ist und jedes weiter Komma wird als neue Zeile interpretiert…\\
-		2.	Chinesiche Zeichen bei mind. einem Produkt\\
-		3.	Andere Sonderzeichen: verarbeitbar oder Störfaktoren?\\
-		4.	Verschiedene Quellen könnten zu verschiedenen Mustern führen: Beobachten wie gut unser Modell je nach Quelle funktioniert.\\
-		5.	Marke und Modelnummer zu einfach zu extrahieren?: weitere Attribute festlegen und von Hand labeln?\\
 	\section{Implementierung}
 	\subsection{Architektur} %Thilo
 	Das gesamte Programm soll mithilfe von Python implementiert werden. Innerhalb von Jupyter Notebooks sollen Codeabschnitte einzeln ausführbar sein. Die weit verbreiteten Bibliotheken spacy und keras sollen als Grundbausteine verwendet werden, da sie nützliche Funktionen bereits implementieren.\\
-	Spacy ist dabei zur Textbearbeitung und -vorbereitung nützlich. Darin enthalten sind WErkzuege zur Tokenisierung und süezielleren Werkzeugen wie zum Stemming der Tokens. Damit könnten Wörter auf ihren Wortstamm zurückdekliniert werden.
+	Spacy ist dabei zur Textbearbeitung und -vorbereitung nützlich. Darin enthalten sind Werkzuege zur Tokenisierung und speziellere Werkzeugen wie zum Stemming der Tokens. Damit könnten Wörter auf ihren Wortstamm zurückdekliniert werden.
 	In Keras ist eine Verbindungsstelle zwischen python und der Tensorflow Bibliothek hergestellt. Tensorflow ist der für dieses Projekt notwendige Baustein um künstliche Neuronale Netzwerke einfach zu verwenden.
 	
 	Der Aufbau der Neuronalen Netze ist noch nicht endgültig festzulegen. Nach erster Implementierung werden verschiedene Tiefen und Zusammensetzungen von Ebenen ausprobiert um zu einem möglichst guten Ergebnis zu kommen. Dabei muss auch ein Ausgleich zwischen Geschwindigkeit und Genauigkeit der Klassifizierung gefunden werden.
-	
-	\subsection{Vorgehensweise:Ablauf} %Gregor
-	Die Vorgehensweise orientiert sich an der des CRISP-DM von \cite{Cleve.2016} (vgl. Bild). 
-	
-	\begin{figure}
-		\caption{CRISP-DM in Eigendarstellung \cite{Cleve.2016}}
-		\centering
-		\includegraphics[width=\linewidth]{CRISP-DMGregor.png}
-	\end{figure}
-	
-	Die Schritte Business Understanding und Data Understanding sind gleichzusetzen mit Kapitel…(Aufgabenstellung) bzw. Kapitel…(Beschreibung Datensatz) Die eigentliche Entwicklung der Methode kann in die Schritte Data Preparation, Modelling, Evaluation und Deployment aufgeteilt werden. Die Schritte verschwimmen in der Praxis alle miteinander. Das eigentliche Konzept an dem sich orientiert wird besteht darin, dass das Modell schrittweise verbessert wird. Es wird also zuerst ein ‚einfaches‘ Modell entwickelt und dann nach einer Evaluation immer wieder verbessert, bis ein zufriedenstellendes Ergebnis vorliegt.
 	
 	\subsection{Training/Validation/Testing der ML Methode} %Thilo
 	Der Datensatz soll in drei Teile aufgespalten werden. Diese drei Teile werden zum Training, der Validierung und für die abschließenden Tests verwendet. 
@@ -116,9 +120,7 @@
 	Abschließend sollen verschiedene automatisch mitgeschnittene Metriken in Grafiken aufbereitet werden um die Ergebnisse anschaulich darstellen zu können.
 		
 	\subsection{Verbesserungsmöglichkeiten/Mögliche Erweiterungen} %Gregor
-	Mehr Attribute
-	Attention-Schicht
-	CRF (Conditional random field)
+	Mit dem derzeitigen Plan ein LSTM zu verwenden sind folgende Verbesserungs\-möglichkeiten vorgesehen.
 	
 	\subsubsection{CRF}
 	Eine Möglichkeit besteht darin Conditional Random Fields (CRF) wie in \cite{Majumder.2018} und \cite{Zheng.2018} zu verwenden. Dabei würde CRF die Aufgabe der Output Schicht übernehmen und wäre für das Labeling zuständig. Wird keine CRF-Schicht verwendet, dann berechnet das LSTM das passende Label für jedes Token eigenständig und unabhängig. Durch die CRF-Schicht passiert das Labeling der gesamten Eingabesequenz auf einmal, wodurch es möglich ist, die Abhängigkeiten zwischen Wörtern, die in Nachbarschaft zueinander stehen, zu berücksichtigen. CRFs sind immer dann hilfreich, wenn Attributwerte gesucht werden, die sich aus mehreren Wörtern zusammensetzen können. In diesem Projekt ist das das Attribut ‚Marke‘ bzw. ‚brand‘. Markennamen bestehen nicht selten aus mehr als einem Wort (Beispiele aus dem Datensatz: ‚Fulgor Milano‘, ‚Fisher Paykel‘, ‚Ready Hot‘, …). CRF hilft dabei, auch diese Markennamen als einen Attributwert, der aus mehreren Tokens besteht, zu erkennen. 

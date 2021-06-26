@@ -3,9 +3,9 @@ import dict_map as dm
 
 df = pd.read_csv('Daten/trainingdata.csv',escapechar="\\",sep=",",error_bad_lines=False,warn_bad_lines=False)
 print(df)
-df = df.head(1000000)
+df = df.head(3000000)
 print(df)
-df = df.groupby('satzId').filter(lambda x: len(x) < 400)
+df = df.groupby('satzId').filter(lambda x: len(x) <= 400)
 print(df)
 token2idx, idx2token = dm.get_dict_map(df, 'token')
 tag2idx, idx2tag = dm.get_dict_map(df, 'tag')

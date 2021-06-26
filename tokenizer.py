@@ -3,28 +3,6 @@ import spacy
 nlp = spacy.load("en_core_web_md")
 
 def tokenizer(id,fText,l1,l2):
-
-    doc = nlp(fText)
-    bdoc = nlp(l1)
-    mdoc = nlp(l2)
-    ### TOKENIZING ###, ### REMOVING STOP WORDS ### if not token.is_stop
-    wList = [token for token in doc]
-    bList = [token for token in bdoc]
-    mList = [token for token in mdoc]
-    ### NORMALIZING ###, ### STEMMING ###, ### LEMMATIZATION ###
-    # wList = [token.lemma_ for token in wList]
-    ### POS filtering ###
-    df = pd.DataFrame(columns=['satzId','Wort','Attribut'], data = {'satzId': id, 'Wort': wList})
-    #cast falls nötig von spacy token zu string konvertieren
-    df['Wort'] = df['Wort'].astype(str)
-    df['Attribut'] = "Nix"
-    for each in bList:
-        df.loc[df['Wort'] == str(each), 'Attribut'] = "Brand"
-    for each in mList:
-        df.loc[df['Wort'] == str(each), 'Attribut'] = "Modelnumber"
-    return df
-
-def tokenizer2(id,fText,l1,l2):
     doc = nlp(fText)
     bdoc = nlp(l1)
     mdoc = nlp(l2)
@@ -41,14 +19,16 @@ def tokenizer2(id,fText,l1,l2):
     df['Attribut'] = "O"
 
     #search for all times the first word of the brand occures in the text
-    b_brand = df.loc[df['Wort'] == str(bList[0]), 'Attribut']
+    b_brand = df.loc[df['Wort'].str.lower() == str(bList[0]).lower(), 'Attribut']
 
     #print(b_brand.index.asi8)
 
     # searching for the Brand Labels
-    #ToDo: if len(b_brand.index.asi8) == 1 dann direkt zuordnen 'B-Brand'
-    if(len(bList) == 1):
-        df.at[b_brand.index.asi8[0], 'Attribut'] = "B-Brand"
+
+    #if(len(b_brand.index.asi8) == 1):
+    #    df.at[b_brand.index.asi8[0], 'Attribut'] = "B-Brand"
+    if(len(bList)==1):
+        df.loc[df['Wort'].str.lower() == str(bList[0]).lower(), 'Attribut'] = 'B-Brand'
     else:
         for x in range(len(b_brand.index.asi8)):
             #everytime the first Word of the Brand occurs in the Text we need to ckeck the following tokens if it really is the whole Brand Label
@@ -57,7 +37,7 @@ def tokenizer2(id,fText,l1,l2):
             # amount of hits have to be the length of the Brand
             hits = 0
             for i, row in enumerate(df_to_check['Wort']):
-                if(row == str(bList[i])): #hit if the word in the token is the same as in the brand label we search
+                if(row.lower() == str(bList[i]).lower()): #hit if the word in the token is the same as in the brand label we search
                     hits += 1
                 else:
                     break
@@ -67,11 +47,11 @@ def tokenizer2(id,fText,l1,l2):
                 df.at[b_brand.index.asi8[x]+len(bList)-1, 'Attribut'] = "E-Brand"
 
     #search for all times the first word of the brand occures in the text
-    b_modelnumber = df.loc[df['Wort'] == str(mList[0]), 'Attribut']
+    b_modelnumber = df.loc[df['Wort'].str.lower() == str(mList[0]).lower(), 'Attribut']
 
 
-    if(len(b_modelnumber.index.asi8) == 1):
-        df.at[b_modelnumber.index.asi8[0], 'Attribut'] = "B-Modelnumber"
+    if(len(mList) == 1):
+        df.loc[df['Wort'].str.lower() == str(mList[0]).lower(), 'Attribut'] = "B-Modelnumber"
     else:
         for x in range(len(b_modelnumber.index.asi8)):
             #everytime the first Word of the Brand occurs in the Text we need to ckeck the following tokens if it really is the whole Brand Label
@@ -80,12 +60,15 @@ def tokenizer2(id,fText,l1,l2):
             # amount of hits have to be the length of the Brand
             hits = 0
             for i, row in enumerate(df_to_check['Wort']):
-                if(row == str(mList[i])): #hit if the word in the token is the same as in the brand label we search
+                if(row.lower() == str(mList[i]).lower()): #hit if the word in the token is the same as in the brand label we search
                     hits += 1
                 else:
                     break
             if(hits == len(mList)):
-                df.iloc[b_modelnumber.index.asi8[x]:b_modelnumber.index.asi8[x]+len(mList)]['Attribut'] = "B-Modelnumber"
+                df.iloc[b_modelnumber.index.asi8[x]:b_modelnumber.index.asi8[x]+len(mList)]['Attribut'] = "I-Modelnumber"
+                df.at[b_modelnumber.index.asi8[x], 'Attribut'] = "B-Modelnumber"
+                df.at[b_modelnumber.index.asi8[x]+len(mList)-1, 'Attribut'] = "E-Modelnumber"
+
 
     #for each in bList:
     #    df.loc[df['Wort'] == str(each), 'Attribut'] = "B-Brand"

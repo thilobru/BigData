@@ -79,7 +79,7 @@ def tokenizer(id,fText,l1,l2):
 text = ("Front controls Easily operate your range stove without reaching over hot Sensi-Technology pots and pans Sensi-Temp Technology Enjoy the same cooking power as a traditional coil with an added safety feature that meets the new UL858 Household Electric Ranges Standard for Safety Lift-up cooktop Quickly clean up spills and remove crumbs from the subtop Two oven racks Feature a durable construction to help accommodate any size or type of cookware Standard clean oven Smooth surface makes cleaning by hand easier One-piece durable handle Strong and long-lasting Chrome drop bowls Contain spills and remove for easy cleaning")
 #text2 = ("KitchenAid® 30\" Stainless Look Under Cabinet Hood Liner-UVL5430JSS","LED Lights provides bright, natural-looking light to give you a better view of your food as it cooks. Dishwasher Safe Aluminum Mesh Grease Filter remove grease to keep up with high-heat cooking techniques and feature a durable, easy-to-clean design. Other Feature 3-Speed Push Button Control")
 
-res = (tokenizer2(0,text, "Sensi-Temp Technology", "Easily"))
+res = (tokenizer(0,text, "Sensi-Temp Technology", "Easily"))
 
 print(res)
 

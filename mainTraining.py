@@ -1,12 +1,9 @@
 import pandas as pd
 import dict_map as dm
 
-df = pd.read_csv('Daten/trainingdata.csv',escapechar="\\",sep=",",error_bad_lines=False,warn_bad_lines=False)
+df = pd.read_csv('Daten/trainingdata300.csv',escapechar="\\",sep=",",error_bad_lines=False,warn_bad_lines=False)
 print(df)
-df = df.head(3000000)
-print(df)
-df = df.groupby('satzId').filter(lambda x: len(x) <= 400)
-print(df)
+# df = df.head(1000)
 token2idx, idx2token = dm.get_dict_map(df, 'token')
 tag2idx, idx2tag = dm.get_dict_map(df, 'tag')
 
@@ -34,4 +31,10 @@ model_bilstm_lstm = md.get_bilstm_lstm_model(input_dim, output_dim, input_length
 
 import numpy as np
 results = pd.DataFrame()
-results['with_add_lstm'] = md.train_model(train_tokens, np.array(train_tags), model_bilstm_lstm)
+model, results['with_add_lstm'] = md.train_model(train_tokens, np.array(train_tags), model_bilstm_lstm)
+print(results)
+
+# Save the model
+filepath = './models/saved_model'
+# save_model(md, filepath)
+model.save(filepath)

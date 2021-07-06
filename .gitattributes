@@ -1,2 +1,6 @@
 Daten/trainingData.csv filter=lfs diff=lfs merge=lfs -text
+<<<<<<< HEAD
+*.csv filter=lfs diff=lfs merge=lfs -text
+=======
 Daten/trainingData.csv filter=lfs diff=lfs merge=lfs -text
+>>>>>>> 13919a9acf8ff3c95406ffe7199490c29c0b2ec3

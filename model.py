@@ -20,8 +20,8 @@ def get_bilstm_lstm_model(input_dim, output_dim, input_length, n_tags):
     model.add(Bidirectional(LSTM(units=output_dim, return_sequences=True, dropout=0.2, recurrent_dropout=0.2), merge_mode = 'concat'))
 
     # Add LSTM
-    # model.add(LSTM(units=output_dim, return_sequences=True, dropout=0.5, recurrent_dropout=0.5, activation='tanh'))
-    model.add(LSTM(units=output_dim*4, return_sequences=True, dropout=0.5, recurrent_dropout=0.5))
+    # model.add(LSTM(units=output_dim, return_sequences=True, dropout=0.5, recurrent_dropout=0.5))
+    model.add(LSTM(units=output_dim, return_sequences=True, dropout=0.5, recurrent_dropout=0.5))
 
     # Add timeDistributed Layer
     # model.add(TimeDistributed(Dense(n_tags, activation="relu")))
@@ -40,7 +40,7 @@ def train_model(X, y, model):
     loss = list()
     for _ in range(5):#25
         # fit model for one epoch on this sequence
-        hist = model.fit(X, y, batch_size=256, verbose=1, epochs=1, validation_split=0.2)
+        hist = model.fit(X, y, batch_size=512, verbose=1, epochs=1, validation_split=0.2)
         print(hist.history['loss'][0])
         loss.append(hist.history['loss'][0])
     return model, loss

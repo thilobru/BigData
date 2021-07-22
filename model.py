@@ -6,42 +6,20 @@ from tensorflow.keras.layers import LSTM, Embedding, Dense, TimeDistributed, Dro
 from numpy.random import seed
 seed(1)
 tensorflow.random.set_seed(2)
+from sklearn.utils.class_weight import compute_class_weight
+from sklearn.preprocessing import MultiLabelBinarizer
 
 import keras as k
-
-def get_bilstm_lstm_model(input_dim, output_dim, input_length, n_tags):
-    model = Sequential()
-
-    # Add Embedding layer
-    model.add(Embedding(input_dim=input_dim, output_dim=output_dim, input_length=input_length))
-
-    # Add bidirectional LSTM
-    #model.add(Bidirectional(LSTM(units=output_dim, return_sequences=True, dropout=0.2, recurrent_dropout=0.2), merge_mode = 'concat'))
-    model.add(Bidirectional(LSTM(units=output_dim, return_sequences=True, dropout=0.2, recurrent_dropout=0.2), merge_mode = 'concat'))
-
-    # Add LSTM
-    # model.add(LSTM(units=output_dim, return_sequences=True, dropout=0.5, recurrent_dropout=0.5))
-    model.add(LSTM(units=output_dim, return_sequences=True, dropout=0.5, recurrent_dropout=0.5))
-
-    # Add timeDistributed Layer
-    # model.add(TimeDistributed(Dense(n_tags, activation="relu")))
-    model.add(TimeDistributed(Dense(n_tags, activation="softmax")))
-
-    #Optimiser 
-    adam = k.optimizers.Adam(learning_rate=0.0005, beta_1=0.9, beta_2=0.999)
-
-    # Compile model
-    model.compile(loss='categorical_crossentropy', optimizer = adam, metrics=['accuracy'], sample_weight_mode='temporal')
-    model.summary()
-    
-    return model
-## class weights berechnen
-
+import numpy as np
 
 def generate_class_weights(class_series, multi_class=True, one_hot_encoded=False):
-    import numpy as np
-    from sklearn.utils.class_weight import compute_class_weight
-    from sklearn.preprocessing import MultiLabelBinarizer
+    array = []
+    #for x in range(0, 20000):
+    for x in  range(0, len(class_series)):
+        for y in range(0, 300):
+            array.append(class_series[x][y])
+    class_series = array
+
     """
     Method to generate class weights given a set of multi-class or multi-label labels, both one-hot-encoded or not.
     Some examples of different formats of class_series and their outputs are:
@@ -91,39 +69,51 @@ def generate_class_weights(class_series, multi_class=True, one_hot_encoded=False
 
 # ToDo: Array korreckt befüllen:
 # https://github.com/keras-team/keras/issues/3653#issuecomment-761085597
-def generate_sample_weights(training_data, class_weights): 
-    import numpy as np
+def generate_sample_weights(train_tags, class_weights): 
     #replaces values for up to 3 classes with the values from class_weights#
     # ToDo: Train Tags sind OnHot Encodings 
+    train_tags = np.argmax(train_tags, axis=1)
     sample_weights = [np.where(y==0,class_weights[0],
                         np.where(y==1,class_weights[1],
                         np.where(y==2,class_weights[2],
                         np.where(y==3,class_weights[3],
                         np.where(y==4,class_weights[4],
-                        np.where(y==3,class_weights[5],
-                        np.where(y==4,class_weights[6],
-                        np.where(y==5,class_weights[7])))))))) for y in training_data]
+                        np.where(y==5,class_weights[5],
+                        np.where(y==6,class_weights[6],
+                        np.where(y==7,class_weights[7],
+                        y)))))))) for y in train_tags]
     return np.asarray(sample_weights)
 
+def get_bilstm_lstm_model(input_dim, output_dim, input_length, n_tags):
+    model = Sequential()
+    # Add Embedding layer
+    model.add(Embedding(input_dim=input_dim, output_dim=output_dim, input_length=input_length))
+    # Add bidirectional LSTM
+    model.add(Bidirectional(LSTM(units=output_dim, return_sequences=True, dropout=0.2, recurrent_dropout=0.2), merge_mode = 'concat'))
+    # Add LSTM
+    model.add(LSTM(units=output_dim, return_sequences=True, dropout=0.5, recurrent_dropout=0.5))
+    # Add timeDistributed Layer
+    # model.add(TimeDistributed(Dense(n_tags, activation="relu"))) # doesnt calculate loss
+    model.add(TimeDistributed(Dense(n_tags, activation="softmax")))
+    #Optimiser 
+    adam = k.optimizers.Adam(learning_rate=0.0005, beta_1=0.9, beta_2=0.999)
+    # Compile model
+    model.compile(loss='categorical_crossentropy', optimizer = adam, metrics=['accuracy'], sample_weight_mode='temporal')
+    model.summary()
+    
+    return model
+
 def train_model(X, y, model):
-    #class_weights = generate_class_weights(y[0], multi_class=True, one_hot_encoded=True)
-    #class_weights = generate_sample_weights(y, class_weights)
-    import numpy as np
-    class_weights = np.zeros((39010, 300))
-    # ToDo: Array korreckt befüllen:
-    # https://github.com/keras-team/keras/issues/3653#issuecomment-761085597
-    class_weights[:, 0] += 0.1
-    class_weights[:, 1] += 42.0
-    class_weights[:, 2] += 42.0
-    class_weights[:, 3] += 42.0
-    class_weights[:, 4] += 42.0
-    class_weights[:, 5] += 42.0
-    class_weights[:, 6] += 42.0
-    class_weights[:, 7] += 42.0
+    class_weights = generate_class_weights(y, multi_class=True, one_hot_encoded=True)
+    # class_weights = {0: 0.00000001, 1: 25.22492222315648, 2: 364.4314868804665, 3: 51.05687736138058, 4: 255.40609569215053, 5: 1382.4884792626729, 6: 249.45950440711792, 7: 0.1443130693090454}
+    sample_weights = np.zeros((len(y), len(X[0])))
+    for x in range(0, len(y)-1):
+        sample_weights[x] = generate_sample_weights(y[x], class_weights)
+            
     loss = list()
     for _ in range(5):#25
         # fit model for one epoch on this sequence
-        hist = model.fit(X, y, batch_size=512, verbose=1, epochs=1, validation_split=0.2, sample_weight=class_weights)
+        hist = model.fit(X, y, batch_size=1024, verbose=1, epochs=1, validation_split=0.2, sample_weight=sample_weights)
         print(hist.history['loss'][0])
         loss.append(hist.history['loss'][0])
     return model, loss

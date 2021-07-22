@@ -38,3 +38,8 @@ print(results)
 filepath = './models/train300wWeights'
 # save_model(md, filepath)
 model.save(filepath)
+
+# Evaluate the model on the test data using `evaluate`
+print("Evaluate on test data")
+results = model.evaluate(test_tokens, np.array(test_tags), batch_size=512)
+print("test loss, test acc:", results)

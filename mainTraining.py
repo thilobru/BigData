@@ -35,6 +35,6 @@ model, results['with_add_lstm'] = md.train_model(train_tokens, np.array(train_ta
 print(results)
 
 # Save the model
-filepath = './models/saved_model'
+filepath = './models/train300wWeights'
 # save_model(md, filepath)
 model.save(filepath)

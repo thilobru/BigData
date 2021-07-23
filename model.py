@@ -44,6 +44,7 @@ def generate_class_weights(class_series, multi_class=True, one_hot_encoded=False
         # Compute class weights with sklearn method
         class_labels = np.unique(class_series)
         class_weights = compute_class_weight(class_weight='balanced', classes=class_labels, y=class_series)
+        print(dict(zip(class_labels, class_weights)))
         return dict(zip(class_labels, class_weights))
     else:
         # It is neccessary that the multi-label values are one-hot encoded
@@ -65,6 +66,7 @@ def generate_class_weights(class_series, multi_class=True, one_hot_encoded=False
         # Compute class weights using balanced method
         class_weights = [n_samples / (n_classes * freq) if freq > 0 else 1 for freq in class_count]
         class_labels = range(len(class_weights)) if mlb is None else mlb.classes_
+        print(dict(zip(class_labels, class_weights)))
         return dict(zip(class_labels, class_weights))
 
 # ToDo: Array korreckt befüllen:
@@ -113,7 +115,7 @@ def train_model(X, y, model):
     loss = list()
     for _ in range(5):#25
         # fit model for one epoch on this sequence
-        hist = model.fit(X, y, batch_size=1024, verbose=1, epochs=1, validation_split=0.2, sample_weight=sample_weights)
+        hist = model.fit(X, y, batch_size=64, verbose=1, epochs=1, validation_split=0.2, sample_weight=sample_weights)
         print(hist.history['loss'][0])
         loss.append(hist.history['loss'][0])
     return model, loss

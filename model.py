@@ -1,11 +1,11 @@
-import tensorflow
+import tensorflow as tf
 from tensorflow.keras import Sequential, Model, Input
 from tensorflow.keras.layers import LSTM, Embedding, Dense, TimeDistributed, Dropout, Bidirectional
 #https://www.tensorflow.org/install/gpu#software_requirements
 #https://docs.nvidia.com/deeplearning/cudnn/install-guide/index.html
 from numpy.random import seed
 seed(1)
-tensorflow.random.set_seed(2)
+tf.random.set_seed(2)
 from sklearn.utils.class_weight import compute_class_weight
 from sklearn.preprocessing import MultiLabelBinarizer
 
@@ -105,17 +105,26 @@ def get_bilstm_lstm_model(input_dim, output_dim, input_length, n_tags):
     
     return model
 
-def train_model(X, y, model):
+def train_model(X, y, Xv, yv, model):
+    early_stop = tf.keras.callbacks.EarlyStopping(
+        monitor='val_loss',
+        min_delta=0.0005, #default: 0.0001 -> wenn höher, stoppt es eher (nach 11/12 iter), bei 0.00001: 31 iter
+        patience=3,
+        verbose=1, 
+        mode='min',
+        restore_best_weights=True)
+
     class_weights = generate_class_weights(y, multi_class=True, one_hot_encoded=True)
-    # class_weights = {0: 0.00000001, 1: 25.22492222315648, 2: 364.4314868804665, 3: 51.05687736138058, 4: 255.40609569215053, 5: 1382.4884792626729, 6: 249.45950440711792, 7: 0.1443130693090454}
     sample_weights = np.zeros((len(y), len(X[0])))
     for x in range(0, len(y)-1):
         sample_weights[x] = generate_sample_weights(y[x], class_weights)
             
-    loss = list()
-    for _ in range(5):#25
-        # fit model for one epoch on this sequence
-        hist = model.fit(X, y, batch_size=64, verbose=1, epochs=1, validation_split=0.2, sample_weight=sample_weights)
-        print(hist.history['loss'][0])
-        loss.append(hist.history['loss'][0])
-    return model, loss
+    hist = model.fit(X, y, 
+        validation_data=(Xv, yv),
+        batch_size=64, 
+        epochs=50,
+        verbose=1, 
+        callbacks=[early_stop], 
+        sample_weight=sample_weights)
+    print(hist.history['loss'])
+    return model, hist

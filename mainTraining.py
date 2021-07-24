@@ -1,7 +1,7 @@
 import pandas as pd
 import dict_map as dm
 
-df = pd.read_csv('Daten/trainingdata300.csv',escapechar="\\",sep=",",error_bad_lines=False,warn_bad_lines=False)
+df = pd.read_csv('data/trainingdata300.csv',escapechar="\\",sep=",",error_bad_lines=False,warn_bad_lines=False)
 print(df)
 # df = df.head(1000)
 token2idx, idx2token = dm.get_dict_map(df, 'token')
@@ -26,7 +26,7 @@ import model as md
 model_bilstm_lstm = md.get_bilstm_lstm_model(input_dim, output_dim, input_length, n_tags)
 
 #choco install graphviz, pip install pydot
-#from tensorflow.keras.utils import plot_model 
+#from tensorflow.keras.utils import plot_model
 #plot_model(model_bilstm_lstm)
 
 import numpy as np
@@ -35,7 +35,7 @@ model, results['with_add_lstm'] = md.train_model(train_tokens, np.array(train_ta
 print(results)
 
 # Save the model
-filepath = './models/train300wWeights'
+filepath = './models/train300wWeights50epoch'
 # save_model(md, filepath)
 model.save(filepath)
 

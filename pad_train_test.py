@@ -24,11 +24,11 @@ def get_pad_train_test_val(data_group, data, tag2idx):
 
     print(
         'train_tokens length:', len(train_tokens),
-        '\ntrain_tags length:', len(train_tags),
-        '\ntest_tokens length:', len(test_tokens),
-        '\ntest_tags:', len(test_tags),
-        '\nval_tokens:', len(val_tokens),
-        '\nval_tags:', len(val_tags),
+        '\ntrain_tags length:  ', len(train_tags),
+        '\nval_tokens length:  ', len(val_tokens),
+        '\nval_tags length:    ', len(val_tags),
+        '\ntest_tokens length: ', len(test_tokens),
+        '\ntest_tags length:   ', len(test_tags),
     )
 
     return train_tokens, val_tokens, test_tokens, train_tags, val_tags, test_tags

@@ -72,7 +72,7 @@ def generate_class_weights(class_series, multi_class=True, one_hot_encoded=False
 # ToDo: Array korreckt befüllen:
 # https://github.com/keras-team/keras/issues/3653#issuecomment-761085597
 def generate_sample_weights(train_tags, class_weights): 
-    #replaces values for up to 3 classes with the values from class_weights#
+    #replaces values for up to 7 classes with the values from class_weights#
     # ToDo: Train Tags sind OnHot Encodings 
     train_tags = np.argmax(train_tags, axis=1)
     sample_weights = [np.where(y==0,class_weights[0],
@@ -82,8 +82,7 @@ def generate_sample_weights(train_tags, class_weights):
                         np.where(y==4,class_weights[4],
                         np.where(y==5,class_weights[5],
                         np.where(y==6,class_weights[6],
-                        np.where(y==7,class_weights[7],
-                        y)))))))) for y in train_tags]
+                        y))))))) for y in train_tags]
     return np.asarray(sample_weights)
 
 def get_bilstm_lstm_model(input_dim, output_dim, input_length, n_tags):
@@ -109,7 +108,7 @@ def train_model(X, y, Xv, yv, model):
     early_stop = tf.keras.callbacks.EarlyStopping(
         monitor='val_loss',
         min_delta=0.0005, #default: 0.0001 -> wenn höher, stoppt es eher (nach 11/12 iter), bei 0.00001: 31 iter
-        patience=3,
+        patience=5,
         verbose=1, 
         mode='min',
         restore_best_weights=True)

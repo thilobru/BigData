@@ -8,6 +8,6 @@ Vollständiges Programm in mainTraining.py. Dazu muss trainingData.csv im Ordner
 
 Interessante Dateien sind:
 1. createData.ipynb
-2. modelTrainingWCharEmbed.ipynb
+2. modelTrainingFinal.ipynb
 3. data Ordner mit vorbereiteten Beschreibungen der Produkte in csv Dateien
 

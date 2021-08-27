@@ -10,4 +10,4 @@ Interessante Dateien sind:
 1. createData.ipynb
 2. modelTrainingWCharEmbed.ipynb
 3. data Ordner mit vorbereiteten Beschreibungen der Produkte in csv Dateien
-4. models Ordner mit vorbereiteten Modellen
+

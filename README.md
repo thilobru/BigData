@@ -1,13 +1,11 @@
 # BigData Praktikum
 
-Hier soll ein Projekt zur Entity recognition von e-commerce Produkten entstehen :)
-
-Nach Vorlage von https://towardsdatascience.com/named-entity-recognition-ner-using-keras-bidirectional-lstm-28cd3f301f54
-
-Vollständiges Programm in mainTraining.py. Dazu muss trainingData.csv im Ordner /Daten/ vorliegen
+Modellierung nach Vorlage von: https://www.depends-on-the-definition.com/lstm-with-char-embeddings-for-ner/
 
 Interessante Dateien sind:
-1. createData.ipynb
-2. modelTrainingFinal.ipynb
+1. createData.ipynb: Enthält code um für das Modell nutzbare Daten zu erstellen
+2. 2modelTrainingFinal.ipynb: Nimmt vorbereitete Daten, erstellt ein Modell und trainiert es. Abschließend werden noch Tests ausgeführt, das Modell kann Markenname und Modellnummer extrahieren.
 3. data Ordner mit vorbereiteten Beschreibungen der Produkte in csv Dateien
 
+## Auführung
+Jeweils das python notebook öffnen und nach und nach ausführen.
